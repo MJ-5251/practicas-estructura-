@@ -2,27 +2,15 @@ import java.util.Scanner;
 import java.util.Stack;
 public class metodosclientes {
 
-    public Stack<cliente> Llenar ( Stack<cliente> clientes, Scanner sc){
-        cliente c = new cliente();       
+    public Stack<cliente> Llenar(Stack<cliente> clientes, Scanner sc) {
+        cliente c = new cliente();
 
-        System.out.println("Ingrese la cedula del cliente");
-        c.setCedula(sc.nextLine());
+        c.setCedula(pedirCampo("Ingrese la cedula del cliente:", sc));
+        c.setNombre(pedirCampo("Ingrese el nombre del cliente:", sc));
+        c.setApellido(pedirCampo("Ingrese el apellido del cliente:", sc));
+        c.setTelefono(pedirCampo("Ingrese el telefono del cliente:", sc));
+        c.setDireccion(pedirCampo("Ingrese la direccion del cliente:", sc));
 
-        System.out.println("Ingrese el nombre del cliente");
-        c.setNombre(sc.nextLine());
-
-        System.out.println("Ingrese el apellido del cliente");
-        c.setApellido(sc.nextLine());
-
-        System.out.println("Ingrese el telefono del cliente");
-        c.setTelefono(sc.nextLine());
-
-        System.out.println("Ingrese la direccion del cliente");
-        c.setDireccion(sc.nextLine());
-
-        System.out.println("Ingrese la licencia de conduccion del cliente");
-        c.setLicenciaConduccion(sc.nextLine());
-        
         clientes.push(c);
         return clientes;
     }
