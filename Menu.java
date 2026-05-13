@@ -1,10 +1,14 @@
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
+import java.util.Stack;
 
 public class Menu
 {
-   public static void Clientes()
+   public Stack<cliente> Clientes(Stack<cliente> VectorCliente)
    {
       Scanner sc = new Scanner(System.in);
+      metodosclientes m = new metodosclientes();
       boolean continuar = true;
       while (continuar) {
       System.out.println("1. REGISTAR CLIENTE");
@@ -16,16 +20,16 @@ public class Menu
 
       switch (opc) {
         case 1:
-             System.out.println("NO DISPONIBLE");
+             VectorCliente = m.Llenar(VectorCliente, sc);
             break;
         case 2:
-             System.out.println("NO DISPONIBLE");
+             VectorCliente = m.Modificar(VectorCliente, sc);
             break;
         case 3:
-            System.out.println("NO DISPONIBLE");
+            VectorCliente = m.Eliminar(VectorCliente, sc);
             break;
         case 4:
-            System.out.println("NO DISPONIBLE");
+            m.Buscar(VectorCliente, sc);
             break;
         case 5:
              continuar = false;
@@ -34,11 +38,13 @@ public class Menu
             break;
         }
       }
-   }
+        return VectorCliente;
+    }
 
-   public static void Vehiculos()
+   public Queue<Vehiculo> Vehiculos(Queue<Vehiculo> VectorVehiculos)
    {
       Scanner sc = new Scanner(System.in);
+      MetodosVehiculo m = new MetodosVehiculo();
       boolean continuar = true;
       while (continuar) {
       System.out.println("1. REGISTAR VEHÍCULO");
@@ -50,16 +56,16 @@ public class Menu
 
       switch (opc) {
         case 1:
-             System.out.println("NO DISPONIBLE");
+             VectorVehiculos = m.Registrar(VectorVehiculos);
             break;
         case 2:
-             System.out.println("NO DISPONIBLE");
+             VectorVehiculos = m.Modificar(VectorVehiculos);
             break;
         case 3:
-            System.out.println("NO DISPONIBLE");
+            VectorVehiculos = m.Eliminar(VectorVehiculos);
             break;
         case 4:
-            System.out.println("NO DISPONIBLE");
+            m.Buscar(VectorVehiculos);
             break;
         case 5:
              continuar = false;
@@ -68,11 +74,13 @@ public class Menu
             break;
         }
       }
-   }
+       return VectorVehiculos;
+    }
 
-   public static void CONTRATOS()
+   public LinkedList<ContratoRenting> CONTRATOS(LinkedList<ContratoRenting> VectorContratos)
    {
       Scanner sc = new Scanner(System.in);
+      ContratoRentingMetodos m = new ContratoRentingMetodos();
       boolean continuar = true;
       while (continuar) {
       System.out.println("1. REGISTAR NUEVO CONTRATO");
@@ -84,10 +92,10 @@ public class Menu
 
       switch (opc) {
         case 1:
-             System.out.println("NO DISPONIBLE");
+             VectorContratos = m.llenar(VectorContratos);
             break;
         case 2:
-             System.out.println("NO DISPONIBLE");
+             VectorContratos = m.Modificar(VectorContratos);
             break;
         case 3:
             System.out.println("NO DISPONIBLE");
@@ -102,5 +110,6 @@ public class Menu
             break;
         }
       }
-   }
+        return VectorContratos;
+    }
 }
