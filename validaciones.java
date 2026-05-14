@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class validaciones {
     
-    private String pedirCampo(String mensaje, Scanner sc) {
+    public String pedirCampo(String mensaje, Scanner sc) {
         String valor;
         do {
             System.out.println(mensaje);
