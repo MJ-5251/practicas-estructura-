@@ -1,4 +1,6 @@
+import java.util.LinkedList;
 import java.util.Stack;
+import java.util.Queue;
 
 public class CrearEstructura{
     public static void CrearClientes()
@@ -8,5 +10,15 @@ public class CrearEstructura{
         Stack<cliente> VectorClientes = new Stack<>();
         VectorClientes = i.Importar();
         VectorClientes = m.Clientes(VectorClientes);
+    }
+
+    public static void CrearVehiculo(){
+        Menu m = new Menu();
+        Queue<Vehiculo> VectorVehiculos = new LinkedList<>();
+    }
+
+    public static void CrearContratos(){
+        LinkedList<ContratoRenting> VectorContratos = new LinkedList<>();
+        VectorContratos = m.Contratos(VectorContratos);
     }
 }
