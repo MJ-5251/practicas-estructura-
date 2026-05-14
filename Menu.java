@@ -77,7 +77,7 @@ public class Menu
        return VectorVehiculos;
     }
 
-   public LinkedList<ContratoRenting> CONTRATOS(LinkedList<ContratoRenting> VectorContratos)
+   public LinkedList<ContratoRenting> Contratos(LinkedList<ContratoRenting> VectorContratos)
    {
       Scanner sc = new Scanner(System.in);
       ContratoRentingMetodos m = new ContratoRentingMetodos();
@@ -92,10 +92,10 @@ public class Menu
 
       switch (opc) {
         case 1:
-             VectorContratos = m.llenar(VectorContratos);
+             VectorContratos = m.llenar(VectorContratos, sc);
             break;
         case 2:
-             VectorContratos = m.Modificar(VectorContratos);
+             VectorContratos = m.Modificar(VectorContratos, sc);
             break;
         case 3:
             System.out.println("NO DISPONIBLE");
