@@ -20,7 +20,7 @@ public class CrearEstructura{
     public static void CrearContratos(){
         Menu m = new Menu();
         LinkedList<ContratoRenting> VectorContratos = new LinkedList<>();
-        VectorContratos = m.contratos(VectorContratos);
+        VectorContratos = m.Contratos(VectorContratos);
     }
 
     public static void Informe()
