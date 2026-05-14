@@ -21,4 +21,9 @@ public class CrearEstructura{
         LinkedList<ContratoRenting> VectorContratos = new LinkedList<>();
         VectorContratos = m.Contratos(VectorContratos);
     }
+
+    public static void Informe()
+    {
+        System.out.println("NO DISPONIBLE");
+    }
 }
