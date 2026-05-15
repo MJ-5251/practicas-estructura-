@@ -9,6 +9,7 @@ public class Menu
    {
       Scanner sc = new Scanner(System.in);
       metodosclientes m = new metodosclientes();
+      validaciones v = new validaciones();
       boolean continuar = true;
       while (continuar) {
       System.out.println("1. REGISTAR CLIENTE");
@@ -16,7 +17,7 @@ public class Menu
       System.out.println("3. ELIMINAR CLIENTE");
       System.out.println("4. BUSCAR CLIENTE");
       System.out.println("5. VOLVER AL MENÚ PRINCIPAL");
-      int opc = sc.nextInt();
+      int opc = v.ValidarEntero(sc);
 
       switch (opc) {
         case 1:
@@ -35,6 +36,7 @@ public class Menu
              continuar = false;
             break;
         default:
+            System.out.println("OPCIÓN INVALIDA");
             break;
         }
       }
@@ -45,6 +47,7 @@ public class Menu
    {
       Scanner sc = new Scanner(System.in);
       MetodosVehiculo m = new MetodosVehiculo();
+      validaciones v = new validaciones();
       boolean continuar = true;
       while (continuar) {
       System.out.println("1. REGISTAR VEHÍCULO");
@@ -52,7 +55,7 @@ public class Menu
       System.out.println("3. ELIMINAR VEHÍCULO");
       System.out.println("4. BUSCAR VEHÍCULO");
       System.out.println("5. VOLVER AL MENÚ PRINCIPAL");
-      int opc = sc.nextInt();
+      int opc = v.ValidarEntero(sc);
 
       switch (opc) {
         case 1:
@@ -71,6 +74,7 @@ public class Menu
              continuar = false;
             break;
         default:
+            System.out.println("OPCIÓN INVALIDA");
             break;
         }
       }
@@ -81,6 +85,7 @@ public class Menu
    {
       Scanner sc = new Scanner(System.in);
       ContratoRentingMetodos m = new ContratoRentingMetodos();
+      validaciones v = new validaciones();
       boolean continuar = true;
       while (continuar) {
       System.out.println("1. REGISTAR NUEVO CONTRATO");
@@ -88,7 +93,7 @@ public class Menu
       System.out.println("3. FINALIZAR CONTRATO");
       System.out.println("4. BUSCAR CONTRATO");
       System.out.println("5. VOLVER AL MENÚ PRINCIPAL");
-      int opc = sc.nextInt();
+      int opc = v.ValidarEntero(sc);
 
       switch (opc) {
         case 1:
@@ -107,6 +112,7 @@ public class Menu
              continuar = false;
             break;
         default:
+            System.out.println("OPCIÓN INVALIDA");
             break;
         }
       }
