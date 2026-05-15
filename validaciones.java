@@ -36,7 +36,7 @@ public class validaciones {
         if (!Entrada.isEmpty() && Entrada.matches("[0-9]+")) {
             break;
         }
-        System.out.println("Por favor Ingrese un digito Numérico");
+        System.out.println("POPR FAVOR INGRESE UN DIGITO NUMERICO");
     }
     return Integer.parseInt(Entrada);
 }
