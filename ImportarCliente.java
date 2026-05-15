@@ -1,4 +1,5 @@
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.LinkedList;
@@ -9,6 +10,10 @@ public class ImportarCliente {
     {
         String RutaArchivo = "Clientes.txt";
         Stack<cliente> VectorClientes = new Stack<>();
+
+        File Archivo = new File(RutaArchivo);
+        if(Archivo.exists())
+        {
         try(BufferedReader br = new BufferedReader(new FileReader(RutaArchivo)))
         {
             String Linea;
@@ -66,6 +71,7 @@ public class ImportarCliente {
             {
                 e.printStackTrace();
             }
+        }
          return VectorClientes;
     }
 }
