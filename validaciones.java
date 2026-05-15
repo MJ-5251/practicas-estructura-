@@ -28,13 +28,18 @@ public class validaciones {
         return texto.matches("[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ{} ]+");
     }
 
-      public int ValidarEntero(Scanner sc) {
-        while (!sc.hasNextInt()) {
-            System.out.println("Por favor Ingrese un digito Numérico");
-            sc.nextLine();
+    public int ValidarEntero(Scanner sc) {
+    String Entrada = "";
+    while (true) {
+        Entrada = sc.nextLine().trim();
+        
+        if (!Entrada.isEmpty() && Entrada.matches("[0-9]+")) {
+            break;
         }
-        return sc.nextInt();
+        System.out.println("Por favor Ingrese un digito Numérico");
     }
+    return Integer.parseInt(Entrada);
+}
 
      public int ValidarCedula(Scanner sc) {
         int cedulaE = ValidarEntero(sc);
