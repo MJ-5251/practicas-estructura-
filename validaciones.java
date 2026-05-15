@@ -41,20 +41,18 @@ public class validaciones {
     return Integer.parseInt(Entrada);
 }
 
-     public int ValidarCedula(Scanner sc) {
-        int cedulaE = ValidarEntero(sc);
-        String cedulaAux = cedulaE + "";
-        cedulaAux = cedulaAux.trim();
-        while (cedulaAux.length() < 7 || cedulaAux.length() > 11) {
-            System.out.println("error ingrese de 7 a 10 digitos");
-            sc.next();
-            cedulaAux = sc.next();
+  public String ValidarCedula(Scanner sc) {
+    String Cedula;
+    
+    while (true) {
+        Cedula = sc.nextLine().trim().replaceAll("\\s+", "");
+        
+        if (Cedula.matches("[0-9]+") && Cedula.length() >= 7 && Cedula.length() <= 11) {
+            break;
         }
-        try {
-            cedulaE = Integer.parseInt(cedulaAux);
-        } catch (Exception e) {
-            System.out.println("ingrese una cedula valida");
-        }
-        return cedulaE;
+        System.out.println("ERROR: INGRESE DE 7 A 11 DIGITOS NUMÉRICOS SIN ESPCACIOS");
     }
+    
+    return Cedula;
+}
 }
