@@ -51,41 +51,5 @@ public class validaciones {
     return Integer.parseInt(Entrada);
 }
 
-  // VALIDAR CEDULA Y TELEFONO
-    public String ValidarCedulaYTelefono(Scanner sc, int n1, int n2) {
-    String Validar;
-    
-    while (true) {
-        Validar = sc.nextLine().trim().replaceAll("\\s+", "");
-        
-        if (Validar.matches("[0-9]+") && Validar.length() >= n1 && Validar.length() <= n2) {
-            break;
-        }
-        if(n1 == 7)
-        {
-        System.out.println("ERROR: INGRESE DE 7 A 11 DIGITOS NUMÉRICOS SIN ESPCACIOS");
-        }
-        else{
-        System.out.println("ERROR: INGRESE 10 DIGITOS NUMÉRICOS SIN ESPCACIOS");
-        }
-    }
-    
-    return Validar;
-   }
-
-   // VALIDAR NOMBRE Y APELLIDO
-   public String ValidarNombreYApellido(Scanner sc) {
-    String nombre;
-    
-    while (true) {
-        nombre = sc.nextLine().trim().replaceAll("\\s+", " ");
-        
-        if (nombre.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+") && nombre.length() >= 2 && nombre.length() <= 15) {
-            break;
-        }
-        System.out.println("ERROR: SOLO LETRAS, SIN NÚMEROS NI CARACTERES ESPECIALES, MÁXIMO 15 CARACTERES");
-    }
-    
-    return nombre;
-   }
+ 
 }
