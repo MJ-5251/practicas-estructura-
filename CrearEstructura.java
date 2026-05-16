@@ -8,6 +8,9 @@ public class CrearEstructura{
         ImportarCliente i = new ImportarCliente();
         Menu m = new Menu();
         Stack<cliente> VectorClientes = new Stack<>();
+        Queue<Vehiculo> VectorVehiculos = new LinkedList<>();
+        LinkedList<ContratoRenting> VectorContratos = new LinkedList<>();
+
         VectorClientes = i.Importar();
         VectorClientes = m.Clientes(VectorClientes);
     }
@@ -15,6 +18,8 @@ public class CrearEstructura{
     public static void CrearVehiculo(){
         Menu m = new Menu();
         Queue<Vehiculo> VectorVehiculos = new LinkedList<>();
+        LinkedList<ContratoRenting> VectorContratos = new LinkedList<>();
+        VectorVehiculos = m.Vehiculos(VectorVehiculos);
     }
 
     public static void CrearContratos(){
