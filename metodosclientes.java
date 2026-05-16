@@ -3,21 +3,41 @@ import java.util.Stack;
 public class metodosclientes {
 
     public Stack<cliente> Llenar(Stack<cliente> clientes, Scanner sc) {
-        cliente c = new cliente();
+        boolean continuar = true;
         validaciones v = new validaciones();
-        c.setCedula(v.ValidarCedula(sc));
-        c.setNombre(v.pedirCampo("Ingrese el nombre del cliente:", sc));
-        c.setApellido(v.pedirCampo("Ingrese el apellido del cliente:", sc));
-        c.setTelefono(v.pedirCampo("Ingrese el telefono del cliente:", sc));
+        while (continuar) {
+        cliente c = new cliente();
+        System.out.println("INGRESE LA CEDULA");
+        c.setCedula(v.ValidarCedulaYTelefono(sc, 7, 11));
+        System.out.println("INGRESE EL NOMBRE");
+        c.setNombre(v.ValidarNombreYApellido(sc));
+        System.out.println("INGRESE EL APELLIDO");
+        c.setApellido(v.ValidarNombreYApellido(sc));
+        System.out.println("INGRESE EL TELEFONO DEL CLIENTE");
+        c.setTelefono(v.ValidarCedulaYTelefono(sc, 10, 10));
+        System.out.println("INGRESE LA DIRECCION DEL CLIENTE");
         c.setDireccion(v.pedirCampo("Ingrese la direccion del cliente:", sc));
-
+        System.out.println("INGRESE LA LICENCIA DE CONDUCCIÓN DE CLIENTE");
+        c.setLicenciaConduccion(sc.nextLine());
         clientes.push(c);
+
+        System.out.println("DESEA REGISTRAR OTRO CLIENTE");
+        System.out.println("1. SI");
+        System.out.println("2. NO");
+        int opc = v. ValidarRango(1, 2, sc);
+        if(opc == 2)
+       {
+        continuar = false;
+       }
+        
+        }
         return clientes;
     }
 
     public Stack<cliente> Modificar ( Stack<cliente> clientes, Scanner sc){
+        validaciones v = new validaciones();
         System.out.println("Ingrese la cedula del cliente a modificar");
-        String cedula = sc.nextLine();
+        String cedula = v.ValidarCedulaYTelefono(sc, 7, 11);
         Stack<cliente> aux = new Stack<>();
         boolean encontrado = false;
         while (!clientes.isEmpty()) {
@@ -25,13 +45,13 @@ public class metodosclientes {
             if (c.getCedula().equals(cedula)) {
                 encontrado = true;
                 System.out.println("Ingrese el nuevo nombre del cliente");
-                c.setNombre(sc.next());
+                c.setNombre(v.ValidarNombreYApellido(sc));
 
                 System.out.println("Ingrese el nuevo apellido del cliente");
-                c.setApellido(sc.next());
+                c.setApellido(v.ValidarNombreYApellido(sc));
 
                 System.out.println("Ingrese el nuevo telefono del cliente");
-                c.setTelefono(sc.next());
+                c.setTelefono(v.ValidarCedulaYTelefono(sc, 10, 10));
 
                 System.out.println("Ingrese la nueva direccion del cliente");
                 c.setDireccion(sc.next());
@@ -51,8 +71,9 @@ public class metodosclientes {
     }
 
     public Stack<cliente> Eliminar (Stack<cliente> clientes, Scanner sc){
+        validaciones v = new validaciones();
         System.out.println("Ingrese la cedula del cliente a eliminar");
-        String cedula = sc.nextLine();
+        String cedula = v.ValidarCedulaYTelefono(sc, 7, 11);
 
         boolean eliminado = clientes.removeIf(c -> c.getCedula().equals(cedula));
 
@@ -65,8 +86,9 @@ public class metodosclientes {
     }
 
     public Stack<cliente> Buscar (Stack<cliente> clientes, Scanner sc){
+        validaciones v = new validaciones();
         System.out.println("Ingrese la cedula del cliente a buscar");
-        String cedula = sc.nextLine();
+        String cedula = v.ValidarCedulaYTelefono(sc, 7, 11);
         boolean encontrado = false;
         for (cliente c : clientes) {
             if (c.getCedula().equals(cedula)) {
