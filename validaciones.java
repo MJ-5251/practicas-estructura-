@@ -41,18 +41,36 @@ public class validaciones {
     return Integer.parseInt(Entrada);
 }
 
-  public String ValidarCedula(Scanner sc) {
-    String Cedula;
+  // VALIDAR CEDULA Y TELEFONO
+    public String ValidarCedulaYTelefono(Scanner sc, int n1, int n2) {
+    String Validar;
     
     while (true) {
-        Cedula = sc.nextLine().trim().replaceAll("\\s+", "");
+        Validar = sc.nextLine().trim().replaceAll("\\s+", "");
         
-        if (Cedula.matches("[0-9]+") && Cedula.length() >= 7 && Cedula.length() <= 11) {
+        if (Validar.matches("[0-9]+") && Validar.length() >= n1 && Validar.length() <= n2) {
             break;
         }
         System.out.println("ERROR: INGRESE DE 7 A 11 DIGITOS NUMÉRICOS SIN ESPCACIOS");
     }
     
-    return Cedula;
-}
+    return Validar;
+   }
+
+   // VALIDAR NOMBRE Y APELLIDO
+   public String ValidarNombreYApellido(Scanner sc) {
+    String nombre;
+    
+    while (true) {
+        System.out.print("Ingrese el nombre: ");
+        nombre = sc.nextLine().trim().replaceAll("\\s+", " ");
+        
+        if (nombre.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+") && nombre.length() >= 2 && nombre.length() <= 15) {
+            break;
+        }
+        System.out.println("ERROR: SOLO LETRAS, SIN NÚMEROS NI CARACTERES ESPECIALES, MÁXIMO 15 CARACTERES");
+    }
+    
+    return nombre;
+   }
 }
