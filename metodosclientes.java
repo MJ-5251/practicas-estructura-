@@ -5,7 +5,7 @@ public class metodosclientes {
     public Stack<cliente> Llenar(Stack<cliente> clientes, Scanner sc) {
         cliente c = new cliente();
         validaciones v = new validaciones();
-        c.setCedula(v.pedirCampo("Ingrese la cedula del cliente:", sc));
+        c.setCedula(v.ValidarCedula(sc));
         c.setNombre(v.pedirCampo("Ingrese el nombre del cliente:", sc));
         c.setApellido(v.pedirCampo("Ingrese el apellido del cliente:", sc));
         c.setTelefono(v.pedirCampo("Ingrese el telefono del cliente:", sc));
