@@ -27,6 +27,16 @@ public class validaciones {
     public boolean ValidarTexto(String texto) {
         return texto.matches("[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ{} ]+");
     }
+    
+     public int ValidarRango(int n1, int n2, Scanner sc) {
+        int numero;
+        numero = ValidarEntero(sc);
+        while (numero < n1 || numero > n2) {
+            System.out.println("POR FAVOR INGRESE UN RANGO DE :" + n1 + " HASTA " + n2);
+            numero = ValidarEntero(sc);
+        }
+        return numero;
+    }
 
     public int ValidarEntero(Scanner sc) {
     String Entrada = "";
