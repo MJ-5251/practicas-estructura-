@@ -32,7 +32,7 @@ public class validaciones {
         int numero;
         numero = ValidarEntero(sc);
         while (numero < n1 || numero > n2) {
-            System.out.println("POR FAVOR INGRESE UN RANGO DE :" + n1 + " HASTA " + n2);
+            System.out.println("POR FAVOR INGRESE UN RANGO DE " + n1 + " HASTA " + n2);
             numero = ValidarEntero(sc);
         }
         return numero;
@@ -61,7 +61,13 @@ public class validaciones {
         if (Validar.matches("[0-9]+") && Validar.length() >= n1 && Validar.length() <= n2) {
             break;
         }
+        if(n1 == 7)
+        {
         System.out.println("ERROR: INGRESE DE 7 A 11 DIGITOS NUMÉRICOS SIN ESPCACIOS");
+        }
+        else{
+        System.out.println("ERROR: INGRESE 10 DIGITOS NUMÉRICOS SIN ESPCACIOS");
+        }
     }
     
     return Validar;
@@ -72,7 +78,6 @@ public class validaciones {
     String nombre;
     
     while (true) {
-        System.out.print("Ingrese el nombre: ");
         nombre = sc.nextLine().trim().replaceAll("\\s+", " ");
         
         if (nombre.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+") && nombre.length() >= 2 && nombre.length() <= 15) {
