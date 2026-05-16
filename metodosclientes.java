@@ -4,12 +4,21 @@ public class metodosclientes {
 
     public Stack<cliente> Llenar(Stack<cliente> clientes, Scanner sc) {
         boolean continuar = true;
+        String Cedula;
         validaciones v = new validaciones();
         ValidacionesClientes vc = new ValidacionesClientes();
         while (continuar) {
         cliente c = new cliente();
         System.out.println("INGRESE LA CEDULA");
-        c.setCedula(vc.CedulaRepetida(sc, clientes));
+        Cedula = vc.CedulaRepetida(sc, clientes);
+        if(Cedula.equals("SALIR"))
+        {
+            return clientes;
+        }
+        else{
+         c.setCedula(Cedula);
+        }
+        
         System.out.println("INGRESE EL NOMBRE");
         c.setNombre(vc.ValidarNombreYApellido(sc));
         System.out.println("INGRESE EL APELLIDO");
