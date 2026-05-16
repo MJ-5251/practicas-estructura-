@@ -5,20 +5,20 @@ public class metodosclientes {
     public Stack<cliente> Llenar(Stack<cliente> clientes, Scanner sc) {
         boolean continuar = true;
         validaciones v = new validaciones();
+        ValidacionesClientes vc = new ValidacionesClientes();
         while (continuar) {
         cliente c = new cliente();
         System.out.println("INGRESE LA CEDULA");
-        c.setCedula(v.ValidarCedulaYTelefono(sc, 7, 11));
+        c.setCedula(vc.CedulaRepetida(sc, clientes));
         System.out.println("INGRESE EL NOMBRE");
-        c.setNombre(v.ValidarNombreYApellido(sc));
+        c.setNombre(vc.ValidarNombreYApellido(sc));
         System.out.println("INGRESE EL APELLIDO");
-        c.setApellido(v.ValidarNombreYApellido(sc));
+        c.setApellido(vc.ValidarNombreYApellido(sc));
         System.out.println("INGRESE EL TELEFONO DEL CLIENTE");
-        c.setTelefono(v.ValidarCedulaYTelefono(sc, 10, 10));
+        c.setTelefono(vc.ValidarCedulaYTelefono(sc, 10, 10));
         System.out.println("INGRESE LA DIRECCION DEL CLIENTE");
-        c.setDireccion(v.pedirCampo("Ingrese la direccion del cliente:", sc));
-        System.out.println("INGRESE LA LICENCIA DE CONDUCCIÓN DE CLIENTE");
-        c.setLicenciaConduccion(sc.nextLine());
+        c.setDireccion(vc.ValidarDireccion(sc));
+        c.setLicenciaConduccion(c.getCedula());
         clientes.push(c);
 
         System.out.println("DESEA REGISTRAR OTRO CLIENTE");
@@ -35,7 +35,7 @@ public class metodosclientes {
     }
 
     public Stack<cliente> Modificar ( Stack<cliente> clientes, Scanner sc){
-        validaciones v = new validaciones();
+        ValidacionesClientes v = new ValidacionesClientes();
         System.out.println("Ingrese la cedula del cliente a modificar");
         String cedula = v.ValidarCedulaYTelefono(sc, 7, 11);
         Stack<cliente> aux = new Stack<>();
@@ -54,10 +54,7 @@ public class metodosclientes {
                 c.setTelefono(v.ValidarCedulaYTelefono(sc, 10, 10));
 
                 System.out.println("Ingrese la nueva direccion del cliente");
-                c.setDireccion(sc.next());
-
-                System.out.println("Ingrese la nueva licencia de conduccion del cliente");
-                c.setLicenciaConduccion(sc.next());
+                c.setDireccion(v.ValidarDireccion(sc));
             }
             aux.push(c);
         }
@@ -71,7 +68,7 @@ public class metodosclientes {
     }
 
     public Stack<cliente> Eliminar (Stack<cliente> clientes, Scanner sc){
-        validaciones v = new validaciones();
+        ValidacionesClientes v = new ValidacionesClientes();
         System.out.println("Ingrese la cedula del cliente a eliminar");
         String cedula = v.ValidarCedulaYTelefono(sc, 7, 11);
 
@@ -86,7 +83,7 @@ public class metodosclientes {
     }
 
     public Stack<cliente> Buscar (Stack<cliente> clientes, Scanner sc){
-        validaciones v = new validaciones();
+        ValidacionesClientes v = new ValidacionesClientes();
         System.out.println("Ingrese la cedula del cliente a buscar");
         String cedula = v.ValidarCedulaYTelefono(sc, 7, 11);
         boolean encontrado = false;
