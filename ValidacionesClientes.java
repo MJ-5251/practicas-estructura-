@@ -81,6 +81,9 @@ public class ValidacionesClientes {
             {
                 return Cedula = "SALIR";
             }
+            else{
+                System.out.println("INGRESE LA NUEVA CEDULA");
+            }
             encontrado = false;
         }
         else
