@@ -63,6 +63,7 @@ public class ValidacionesClientes {
    {
     String Cedula;
     boolean encontrado = false;
+    validaciones v = new validaciones();
     while (true) {
         Cedula = ValidarCedulaYTelefono(sc, 7, 11);
         for (cliente o : clientes) {
@@ -72,7 +73,14 @@ public class ValidacionesClientes {
             }
         }
         if(encontrado){
-            System.out.println("YA EXISTE UN USUARIO REGISTRADO CON ESA CEDULA, POR FAVOR INGRESE UNA NUEVA");
+            System.out.println("YA EXISTE UN USUARIO REGISTRADO CON ESA CEDULA");
+            System.out.println("1.INGRESAR UNA NUEVA");
+            System.out.println("2. SALIR");
+            int opc = v.ValidarRango(1, 2, sc);
+            if(opc == 2)
+            {
+                return Cedula = "SALIR";
+            }
             encontrado = false;
         }
         else
