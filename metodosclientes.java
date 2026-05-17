@@ -7,6 +7,7 @@ public class metodosclientes {
         String Cedula;
         validaciones v = new validaciones();
         ValidacionesClientes vc = new ValidacionesClientes();
+        ExportarClientes e = new ExportarClientes();
         while (continuar) {
         cliente c = new cliente();
         System.out.println("INGRESE LA CEDULA");
@@ -40,6 +41,7 @@ public class metodosclientes {
        }
         
         }
+        e.ExportarArchivo(clientes);
         return clientes;
     }
 
