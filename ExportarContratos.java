@@ -11,9 +11,9 @@ public class ExportarContratos {
             System.out.println("LA LISTA ESTA VACIA NO SE PUEDE EXPORTAR EL ARCHIVO");
             return;
          } else{
-            try(FileWriter e = new FileWriter("Clientes.txt"))
+            try(FileWriter e = new FileWriter("Contratos.txt"))
             {
-                for (cliente o : VectorContratos) {
+                for (ContratoRenting o : VectorContratos) {
                     e.write("ID_CONTRATO: " + o.getIdContrato() + "\n");
                     e.write("CEDULA_CLIENTE: : " + o.getCedulaCliente() + "\n");
                     e.write("PLACA_VEHICULO: " + o.getPlacaVehiculo() + "\n");

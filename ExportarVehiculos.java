@@ -14,24 +14,24 @@ public class ExportarVehiculos {
          } else{
             try(FileWriter e = new FileWriter("Vehiculos.txt"))
             {
-                for (cliente o : VectorVehiculos) {
+                for (Vehiculo o : VectorVehiculos) {
                     e.write("PLACA: " + o.getPlaca() + "\n");
                     e.write("MARCA: : " + o.getMarca() + "\n");
                     e.write("MODELO: " + o.getModelo() + "\n");
                     e.write("PRECIO_DIARIO: " + o.getPrecioDiario() + "\n");
                     e.write("ESTADO: " + o.getEstado() + "\n");
 
-                    if (vehiculo instanceof CarrosSedan)
+                    if (o instanceof CarrosSedan)
                     {
-                      CarrosSedan s = (CarrosSedan) vehiculo;
-                    e.write("TIPO_COMBUSTIBLE: " + o.getTipoCombustible() + "\n");
-                    e.write("TRANSMISION: " + o.getTransmision() + "\n");
+                      CarrosSedan s = (CarrosSedan) o;
+                    e.write("TIPO_COMBUSTIBLE: " + s.getTipoCombustible() + "\n");
+                    e.write("TRANSMISION: " + s.getTransmision() + "\n");
                     }
-                    else if (vehiculo instanceof CamionetaSUV)
+                    else if (o instanceof CamionetaSUV)
                     {
-                      CamionetaSUV s = (CamionetaSUV) vehiculo;
-                    e.write("TRACCION: " + o.getTraccion() + "\n");
-                    e.write("CAPACIDAD_MALETERO: " + o.getCapacidadMaletero() + "\n");
+                      CamionetaSUV s = (CamionetaSUV) o;
+                    e.write("TRACCION: " + s.getTraccion() + "\n");
+                    e.write("CAPACIDAD_MALETERO: " + s.getCapacidadMaletero() + "\n");
                     }
                     e.write("------------------------------\n");
                 }
