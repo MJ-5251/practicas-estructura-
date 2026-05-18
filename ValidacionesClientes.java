@@ -4,7 +4,7 @@ import java.util.Stack;
 public class ValidacionesClientes {
 
       // VALIDAR CEDULA Y TELEFONO
-    public String ValidarCedulaYTelefono(Scanner sc, int n1, int n2) {
+    public String ValidarSoloNumeros(Scanner sc, int n1, int n2) {
     String Validar;
     
     while (true) {
@@ -20,22 +20,6 @@ public class ValidacionesClientes {
         else{
         System.out.println("ERROR: INGRESE 10 DIGITOS NUMÉRICOS SIN ESPCACIOS");
         }
-    }
-    
-    return Validar;
-   }
-
-   // VALIDAR NOMBRE Y APELLIDO
-   public String ValidarNombreYApellido(Scanner sc) {
-    String Validar;
-    
-    while (true) {
-        Validar = sc.nextLine().trim().replaceAll("\\s+", " ");
-        
-        if (Validar.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+") && Validar.length() >= 2 && Validar.length() <= 15) {
-            break;
-        }
-        System.out.println("ERROR: SOLO LETRAS, SIN NÚMEROS NI CARACTERES ESPECIALES, MÁXIMO 15 CARACTERES");
     }
     
     return Validar;

@@ -41,15 +41,30 @@ public class validaciones {
     public int ValidarEntero(Scanner sc) {
     String Entrada = "";
     while (true) {
-        Entrada = sc.nextLine().trim();
+        Entrada = sc.nextLine().trim().replaceAll("\\s+", "");
         
         if (!Entrada.isEmpty() && Entrada.matches("[0-9]+")) {
             break;
         }
-        System.out.println("POPR FAVOR INGRESE UN DIGITO NUMERICO");
+        System.out.println("POR FAVOR INGRESE UN DIGITO NUMERICO");
     }
     return Integer.parseInt(Entrada);
-}
+    }
 
+ // VALIDAR NOMBRE ,APELLIDO Y MODELO VEHICULO
+   public String ValidarSoloLetras(Scanner sc, int n1, int n2) {
+    String Validar;
+    
+    while (true) {
+        Validar = sc.nextLine().trim().replaceAll("\\s+", " ");
+        
+        if (Validar.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+") && Validar.length() >= n1 && Validar.length() <= n2) {
+            break;
+        }
+        System.out.println("ERROR: SOLO LETRAS, SIN NÚMEROS NI CARACTERES ESPECIALES, MÁXIMO " + n2 + " CARACTERES");
+    }
+    
+    return Validar;
+   }
  
 }
