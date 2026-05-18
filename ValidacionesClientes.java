@@ -49,7 +49,7 @@ public class ValidacionesClientes {
     boolean encontrado = false;
     validaciones v = new validaciones();
     while (true) {
-        Cedula = ValidarCedulaYTelefono(sc, 7, 11);
+        Cedula = ValidarSoloNumeros(sc, 7, 11);
         for (cliente o : clientes) {
             if(Cedula.equals(o.getCedula()))
             {
