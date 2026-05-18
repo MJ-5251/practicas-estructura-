@@ -1,4 +1,6 @@
+import java.util.Queue;
 import java.util.Scanner;
+import java.util.Stack;
 
 public class ValidacionesVehiculos {
 
@@ -46,5 +48,41 @@ public class ValidacionesVehiculos {
         System.out.println("POR FAVOR INGRESE UN VALOR NUMERICO POSITIVO");
     }
     return Float.parseFloat(Entrada);
-}
+    }
+
+    // VALIDAR PLACAa REPETIDA
+   public String PlacaRepetida(Scanner sc, Queue<Vehiculos> Vehiculos)
+   {
+    String Placa;
+    boolean encontrado = false;
+    validaciones v = new validaciones();
+    while (true) {
+        Placa = ValidarPlaca(sc);
+        for (Vehiculos o : Vehiculos) {
+            if(Placa.equals(o.getPlaca()))
+            {
+                encontrado = true;
+            }
+        }
+        if(encontrado){
+            System.out.println("YA EXISTE UN VEHICULO REGISTRADO CON ESA PLACA");
+            System.out.println("1.INGRESAR UNA NUEVA");
+            System.out.println("2. SALIR");
+            int opc = v.ValidarRango(1, 2, sc);
+            if(opc == 2)
+            {
+                return Placa = "SALIR";
+            }
+            else{
+                System.out.println("INGRESE LA NUEVA PLACA");
+            }
+            encontrado = false;
+        }
+        else
+        {
+           break;
+        }
+    }
+    return Placa;
+   }
 }
