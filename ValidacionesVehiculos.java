@@ -51,14 +51,14 @@ public class ValidacionesVehiculos {
     }
 
     // VALIDAR PLACAa REPETIDA
-   public String PlacaRepetida(Scanner sc, Queue<Vehiculos> Vehiculos)
+   public String PlacaRepetida(Scanner sc, Queue<Vehiculo> Vehiculos)
    {
     String Placa;
     boolean encontrado = false;
     validaciones v = new validaciones();
     while (true) {
         Placa = ValidarPlaca(sc);
-        for (Vehiculos o : Vehiculos) {
+        for (Vehiculo o : Vehiculos) {
             if(Placa.equals(o.getPlaca()))
             {
                 encontrado = true;
