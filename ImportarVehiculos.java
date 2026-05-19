@@ -10,7 +10,7 @@ public class ImportarVehiculos {
     public Queue<Vehiculo> Importar()
     {
         String RutaArchivo = "Vehiculos.txt";
-        Queue<Vehiculo> VectorVehiculos = new Stack<>();
+        Queue<Vehiculo> VectorVehiculos = new LinkedList<>();
 
         File Archivo = new File(RutaArchivo);
         if(Archivo.exists())
@@ -18,7 +18,7 @@ public class ImportarVehiculos {
         try(BufferedReader br = new BufferedReader(new FileReader(RutaArchivo)))
         {
             String Linea;
-            cliente d = null;
+            Vehiculo d = null;
 
             while ((Linea = br.readLine()) != null) {
                 if(Linea.startsWith("PLACA:"))
@@ -27,7 +27,7 @@ public class ImportarVehiculos {
                     {
                         VectorVehiculos.add(d);
                     }
-                    d = new cliente();
+                    d = new Vehiculo();
                     d.setPLaca(Linea.substring(6));
                 }
                 else if(Linea.startsWith("MARCA:"))
