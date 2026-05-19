@@ -14,6 +14,7 @@ public class metodosclientes {
         Cedula = vc.CedulaRepetida(sc, clientes);
         if(Cedula.equals("SALIR"))
         {
+            e.ExportarArchivo(clientes);
             return clientes;
         }
         else{
@@ -48,6 +49,7 @@ public class metodosclientes {
     public Stack<cliente> Modificar ( Stack<cliente> clientes, Scanner sc){
         ValidacionesClientes vc = new ValidacionesClientes();
         validaciones v = new validaciones();
+        ExportarClientes e = new ExportarClientes();
         System.out.println("Ingrese la cedula del cliente a modificar");
         String cedula = vc.ValidarSoloNumeros(sc, 7, 11);
         Stack<cliente> aux = new Stack<>();
@@ -76,11 +78,13 @@ public class metodosclientes {
         if (!encontrado) {
             System.out.println("Cliente no encontrado");
         }
+        e.ExportarArchivo(clientes);
         return clientes;
     }
 
     public Stack<cliente> Eliminar (Stack<cliente> clientes, Scanner sc){
         ValidacionesClientes v = new ValidacionesClientes();
+        ExportarClientes e = new ExportarClientes();
         System.out.println("Ingrese la cedula del cliente a eliminar");
         String cedula = v.ValidarSoloNumeros(sc, 7, 11);
 
@@ -91,10 +95,11 @@ public class metodosclientes {
         } else {
         System.out.println("Cliente no encontrado");
         }
+        e.ExportarArchivo(clientes);
         return clientes;
     }
 
-    public Stack<cliente> Buscar (Stack<cliente> clientes, Scanner sc){
+    public static void Buscar (Stack<cliente> clientes, Scanner sc){
         ValidacionesClientes v = new ValidacionesClientes();
         System.out.println("Ingrese la cedula del cliente a buscar");
         String cedula = v.ValidarSoloNumeros(sc, 7, 11);
@@ -115,7 +120,6 @@ public class metodosclientes {
         if (!encontrado) {
             System.out.println("Cliente no encontrado");
         }
-        return clientes;
     }
     
 }
