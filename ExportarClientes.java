@@ -14,12 +14,12 @@ public class ExportarClientes {
             try(FileWriter e = new FileWriter("Clientes.txt"))
             {
                 for (cliente o : VectorClientes) {
-                    e.write("CEDULA: " + o.getCedula() + "\n");
-                    e.write("NOMBRE: : " + o.getNombre() + "\n");
-                    e.write("APELLIDO: " + o.getApellido() + "\n");
-                    e.write("TELEFONO: " + o.getTelefono() + "\n");
-                    e.write("DIRECCIÓN: " + o.getDireccion() + "\n");
-                    e.write("LICENCIA_CONDUCCION: " + o.getLicenciaConduccion() + "\n");
+                    e.write("CEDULA:" + o.getCedula() + "\n");
+                    e.write("NOMBRE:" + o.getNombre() + "\n");
+                    e.write("APELLIDO:" + o.getApellido() + "\n");
+                    e.write("TELEFONO:" + o.getTelefono() + "\n");
+                    e.write("DIRECCIÓN:" + o.getDireccion() + "\n");
+                    e.write("LICENCIA_CONDUCCION:" + o.getLicenciaConduccion() + "\n");
                     e.write("------------------------------\n");
                 }
                 System.out.println("ARCHIVO EXPORTADO CORRECTAMENTE ");
