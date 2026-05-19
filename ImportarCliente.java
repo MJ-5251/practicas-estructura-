@@ -65,6 +65,11 @@ public class ImportarCliente {
                     }
                 }
             }
+
+              if(d != null)
+              {
+                 VectorClientes.add(d);
+              }
                System.out.println("ARCHIVO IMPORTADO CORRECTAMENTE");
         }
          catch(IOException e)
