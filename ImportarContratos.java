@@ -9,7 +9,7 @@ public class ImportarContratos {
     public LinkedList<ContratoRenting> Importar()
     {
         String RutaArchivo = "Contratos.txt";
-        LinkedList<ContratoRenting> VectorContratos = new Stack<>();
+        LinkedList<ContratoRenting> VectorContratos = new LinkedList<>();
 
         File Archivo = new File(RutaArchivo);
         if(Archivo.exists())
