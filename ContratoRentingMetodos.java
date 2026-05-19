@@ -6,7 +6,14 @@ public class ContratoRentingMetodos {
         ContratoRenting c = new ContratoRenting();
 
         System.out.println("Ingrese el id del contrato");
-        c.setIdContrato(sc.next());
+        if(lista == null)
+        {
+        c.setIdContrato("1000");
+        }
+        else{
+            int numero = Integer.parseInt(lista.getLast().getIdContrato());
+            c.setIdContrato(String.valueOf(numero + 1));
+        }
 
         System.out.println("Ingrese la cedula del cliente");
         c.setCedulaCliente(sc.next());
