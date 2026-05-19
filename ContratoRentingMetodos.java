@@ -25,6 +25,8 @@ public class ContratoRentingMetodos {
 
         System.out.println("Ingrese el valor total");
         c.setValorTotal(sc.nextFloat());
+        
+        c.setEstado("ACTIVO");
 
         lista.add(c);
 
@@ -53,5 +55,6 @@ public class ContratoRentingMetodos {
         return lista;
     }
 
+    
     
 }
