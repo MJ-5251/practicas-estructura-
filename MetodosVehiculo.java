@@ -8,7 +8,7 @@ public class MetodosVehiculo {
         Scanner sc = new Scanner(System.in);
         validaciones v = new validaciones();
         ValidacionesVehiculos vh = new ValidacionesVehiculos();
-        ExportarVehiculos  e = new ExportarVehiculo();
+        ExportarVehiculos  e = new ExportarVehiculos();
         boolean continuar = true;
         while (continuar) {
             System.out.println("1. REGISTRAR VEHICULO SEDAN");
@@ -161,7 +161,7 @@ public class MetodosVehiculo {
         Scanner sc = new Scanner(System.in);
         validaciones v = new validaciones();
         ValidacionesVehiculos vh = new ValidacionesVehiculos();
-        ExportarVehiculos  e = new ExportarVehiculo();
+        ExportarVehiculos  e = new ExportarVehiculos();
         System.out.println("INGRESE LA PLACA DEL VEHICULO QUE DESEA MODIFICAR");
         String Placa = vh.ValidarPlaca(sc);
         boolean encontrado = false;
@@ -294,7 +294,7 @@ public class MetodosVehiculo {
        {
         Scanner sc = new Scanner(System.in);
         ValidacionesVehiculos vh = new ValidacionesVehiculos();
-        ExportarVehiculos  e = new ExportarVehiculo();
+        ExportarVehiculos  e = new ExportarVehiculos();
         System.out.println("INGRESE LA PLACA DEL VEHICULO QUE DESEA ELIMINAR");
         String Placa = vh.ValidarPlaca(sc);
         boolean eliminado = VectorVehiculo.removeIf(x -> x.getPlaca().equals(Placa));
