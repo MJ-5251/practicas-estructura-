@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Stack;
 
-public class ImportarCliente {
+public class ImportarClientes {
     public Stack<cliente> Importar()
     {
         String RutaArchivo = "Clientes.txt";

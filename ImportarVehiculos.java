@@ -28,7 +28,7 @@ public class ImportarVehiculos {
                         VectorVehiculos.add(d);
                     }
                     d = new Vehiculo();
-                    d.setPLaca(Linea.substring(6));
+                    d.setPlaca(Linea.substring(6));
                 }
                 else if(Linea.startsWith("MARCA:"))
                 {
@@ -55,7 +55,7 @@ public class ImportarVehiculos {
                 {
                     if(d != null) 
                     {
-                        d.setDireccion(Linea.substring(7));
+                        d.setEstado(Linea.substring(7));
                     }
                 }
                 else if(Linea.startsWith("TIPO_COMBUSTIBLE:")) {
