@@ -101,7 +101,7 @@ public class MetodosVehiculo {
                       }
                       else
                       {
-                      C.setPlaca(placa);
+                      P.setPlaca(placa);
                       }    
 
                       System.out.println("INGRESE LA MARCA DEL VEHICULO");
