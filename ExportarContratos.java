@@ -14,13 +14,14 @@ public class ExportarContratos {
             try(FileWriter e = new FileWriter("Contratos.txt"))
             {
                 for (ContratoRenting o : VectorContratos) {
-                    e.write("ID_CONTRATO: " + o.getIdContrato() + "\n");
-                    e.write("CEDULA_CLIENTE: : " + o.getCedulaCliente() + "\n");
-                    e.write("PLACA_VEHICULO: " + o.getPlacaVehiculo() + "\n");
-                    e.write("FECHA_INICIO: " + o.getFechaInicio() + "\n");
-                    e.write("FECHA_FIN: " + o.getFechaFin() + "\n");
-                    e.write("TOTAL_DIAS: " + o.getTotalDias() + "\n");
-                    e.write("VALOR_TOTAL: " + o.getValorTotal() + "\n");
+                    e.write("ID_CONTRATO:" + o.getIdContrato() + "\n");
+                    e.write("CEDULA_CLIENTE:" + o.getCedulaCliente() + "\n");
+                    e.write("PLACA_VEHICULO:" + o.getPlacaVehiculo() + "\n");
+                    e.write("FECHA_INICIO:" + o.getFechaInicio() + "\n");
+                    e.write("FECHA_FIN:" + o.getFechaFin() + "\n");
+                    e.write("TOTAL_DIAS:" + o.getTotalDias() + "\n");
+                    e.write("VALOR_TOTAL:" + o.getValorTotal() + "\n");
+                    e.write("ESTADO:" + o.getEstado() + "\n");
                     e.write("------------------------------\n");
                 }
                 System.out.println("ARCHIVO EXPORTADO CORRECTAMENTE ");
