@@ -17,8 +17,11 @@ public class CrearEstructura{
 
     public static void CrearVehiculo(){
         Menu m = new Menu();
+        ImportarVehiculos i = new ImportarVehiculos();
         Queue<Vehiculo> VectorVehiculos = new LinkedList<>();
         LinkedList<ContratoRenting> VectorContratos = new LinkedList<>();
+        
+        VectorVehiculos = i.Importar();
         VectorVehiculos = m.Vehiculos(VectorVehiculos);
     }
 
