@@ -5,7 +5,7 @@ import java.util.Queue;
 public class CrearEstructura{
     public static void CrearClientes()
     {
-        ImportarCliente i = new ImportarCliente();
+        ImportarClientes i = new ImportarClientes();
         Menu m = new Menu();
         Stack<cliente> VectorClientes = new Stack<>();
         Queue<Vehiculo> VectorVehiculos = new LinkedList<>();
