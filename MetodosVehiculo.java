@@ -8,6 +8,7 @@ public class MetodosVehiculo {
         Scanner sc = new Scanner(System.in);
         validaciones v = new validaciones();
         ValidacionesVehiculos vh = new ValidacionesVehiculos();
+        ExportarVehiculos  e = new ExportarVehiculo();
         boolean continuar = true;
         while (continuar) {
             System.out.println("1. REGISTRAR VEHICULO SEDAN");
@@ -23,6 +24,7 @@ public class MetodosVehiculo {
                       String Placa = vh.PlacaRepetida(sc, VectorVehiculo);
                       if(Placa.equals("SALIR"))
                       {
+                        e.ExportarArchivo(VectorVehiculo); 
                         return VectorVehiculo;
                       }
                       else
@@ -97,6 +99,7 @@ public class MetodosVehiculo {
                       String placa = vh.PlacaRepetida(sc, VectorVehiculo);
                       if(placa.equals("SALIR"))
                       {
+                        e.ExportarArchivo(VectorVehiculo);
                         return VectorVehiculo;
                       }
                       else
@@ -149,6 +152,7 @@ public class MetodosVehiculo {
 
           
         }
+        e.ExportarArchivo(VectorVehiculo);
         return VectorVehiculo; 
     }
 
@@ -157,6 +161,7 @@ public class MetodosVehiculo {
         Scanner sc = new Scanner(System.in);
         validaciones v = new validaciones();
         ValidacionesVehiculos vh = new ValidacionesVehiculos();
+        ExportarVehiculos  e = new ExportarVehiculo();
         System.out.println("INGRESE LA PLACA DEL VEHICULO QUE DESEA MODIFICAR");
         String Placa = vh.ValidarPlaca(sc);
         boolean encontrado = false;
@@ -273,14 +278,15 @@ public class MetodosVehiculo {
                       suv.setCapacidadMaletero(vh.ValidarFloat(sc));
 
         }
-       System.out.println("CLIENTE MODIFICADO");          
+       System.out.println("VEHICULO MODIFICADO");          
      } 
     }
 
     if(!encontrado)
     {
-        System.out.println("CLIENTE NO ENCONTRADO");
+        System.out.println("VEHICULO NO ENCONTRADO");
     }
+    e.ExportarArchivo(VectorVehiculo);
     return VectorVehiculo;
     }
 
@@ -288,17 +294,19 @@ public class MetodosVehiculo {
        {
         Scanner sc = new Scanner(System.in);
         ValidacionesVehiculos vh = new ValidacionesVehiculos();
+        ExportarVehiculos  e = new ExportarVehiculo();
         System.out.println("INGRESE LA PLACA DEL VEHICULO QUE DESEA ELIMINAR");
         String Placa = vh.ValidarPlaca(sc);
         boolean eliminado = VectorVehiculo.removeIf(x -> x.getPlaca().equals(Placa));
         
         if(eliminado)
         {
-            System.out.println("CLIENTE ELIMINADO");
+            System.out.println("VEHICULO ELIMINADO");
         }
         else{
-            System.out.println("CLIENTE NO ENCONTRADO");
+            System.out.println("VEHICULO NO ENCONTRADO");
         }
+        e.ExportarArchivo(VectorVehiculo);
         return VectorVehiculo;
        }
 
@@ -330,7 +338,6 @@ public class MetodosVehiculo {
                   System.out.println("TRACCIÓN: " + suv.getTraccion());
                 System.out.println("CAPACIDAD MALETERO: " + suv.getCapacidadMaletero());
                 }
-                System.out.println("VEHICULO ELIMINADO");
               }
          }
 
