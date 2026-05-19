@@ -46,9 +46,10 @@ public class metodosclientes {
     }
 
     public Stack<cliente> Modificar ( Stack<cliente> clientes, Scanner sc){
-        ValidacionesClientes v = new ValidacionesClientes();
+        ValidacionesClientes vc = new ValidacionesClientes();
+        validaciones v = new validaciones();
         System.out.println("Ingrese la cedula del cliente a modificar");
-        String cedula = v.ValidarSoloNumeros(sc, 7, 11);
+        String cedula = vc.ValidarSoloNumeros(sc, 7, 11);
         Stack<cliente> aux = new Stack<>();
         boolean encontrado = false;
         while (!clientes.isEmpty()) {
@@ -62,10 +63,10 @@ public class metodosclientes {
                 c.setApellido(v.ValidarSoloLetras(sc, 2, 15));
 
                 System.out.println("Ingrese el nuevo telefono del cliente");
-                c.setTelefono(v.ValidarSoloNumeros(sc, 10, 10));
+                c.setTelefono(vc.ValidarSoloNumeros(sc, 10, 10));
 
                 System.out.println("Ingrese la nueva direccion del cliente");
-                c.setDireccion(v.ValidarDireccion(sc));
+                c.setDireccion(vc.ValidarDireccion(sc));
             }
             aux.push(c);
         }
