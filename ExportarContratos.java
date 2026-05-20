@@ -22,6 +22,7 @@ public class ExportarContratos {
                     e.write("TOTAL_DIAS:" + o.getTotalDias() + "\n");
                     e.write("VALOR_TOTAL:" + o.getValorTotal() + "\n");
                     e.write("ESTADO:" + o.getEstado() + "\n");
+                    e.write("ELIMINADO:" + o.isEliminado() + "\n");
                     e.write("------------------------------\n");
                 }
                 System.out.println("ARCHIVO EXPORTADO CORRECTAMENTE ");

@@ -78,6 +78,13 @@ public class ImportarContratos {
                         d.setEstado(Linea.substring(7));
                     }
                 }
+                else if(Linea.startsWith("ELIMINADO:")) 
+                {
+                      if(d != null) 
+                      {
+                        d.setEliminado(Boolean.parseBoolean(Linea.substring(10)));
+                      }
+                }
             }
 
               if(d != null)

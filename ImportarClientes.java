@@ -64,6 +64,13 @@ public class ImportarClientes {
                         d.setLicenciaConduccion(Linea.substring(20));
                     }
                 }
+                else if(Linea.startsWith("ELIMINADO:")) 
+                {
+                      if(d != null) 
+                      {
+                        d.setEliminado(Boolean.parseBoolean(Linea.substring(10)));
+                      }
+                }
             }
 
               if(d != null)

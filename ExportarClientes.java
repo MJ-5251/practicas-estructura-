@@ -20,6 +20,7 @@ public class ExportarClientes {
                     e.write("TELEFONO:" + o.getTelefono() + "\n");
                     e.write("DIRECCIÓN:" + o.getDireccion() + "\n");
                     e.write("LICENCIA_CONDUCCION:" + o.getLicenciaConduccion() + "\n");
+                    e.write("ELIMINADO:" + o.isEliminado() + "\n");
                     e.write("------------------------------\n");
                 }
                 System.out.println("ARCHIVO EXPORTADO CORRECTAMENTE ");
