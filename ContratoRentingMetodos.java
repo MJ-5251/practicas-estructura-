@@ -44,7 +44,7 @@ public class ContratoRentingMetodos {
         System.out.println("Ingrese el id del contrato a modificar");
         String id = sc.next();
         for (ContratoRenting c : lista) {
-            if (c.getIdContrato().equals(id)) {
+            if (c.getIdContrato().equals(id) && c.isEliminado()) {
 
                 //System.out.println("Ingrese la fecha de inicio");
                 //c.setFechaInicio(sc.next());
