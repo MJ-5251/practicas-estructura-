@@ -1,3 +1,4 @@
+import java.util.LinkedList;
 import java.util.Scanner;
 import java.util.Stack;
 public class metodosclientes {
@@ -76,7 +77,7 @@ public class metodosclientes {
         return clientes;
     }
 
-    public Stack<cliente> Eliminar (Stack<cliente> clientes, Scanner sc){
+    public Stack<cliente> Eliminar (Stack<cliente> clientes, LinkedList<ContratoRenting> VectorContratos, Scanner sc){
         ValidacionesClientes v = new ValidacionesClientes();
         ExportarClientes e = new ExportarClientes();
         System.out.println("Ingrese la cedula del cliente a eliminar");
