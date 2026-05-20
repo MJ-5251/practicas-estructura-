@@ -84,7 +84,7 @@ public class ValidacionesClientes {
    {
      boolean eliminar = true;
      for (ContratoRenting c : VectorContratos) {
-        if(c.getCedulaCliente().equals(Cedula) && c.isEliminado() && c.getEstado.equals("ACTIVO"))
+        if(c.getCedulaCliente().equals(Cedula) && c.isEliminado() && c.getEstado().equals("ACTIVO"))
         {
             eliminar = false;
         }
