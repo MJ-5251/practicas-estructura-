@@ -4,57 +4,68 @@ public class Vehiculo {
    private int Modelo;
    private float PrecioDiario;
    private String Estado;
+   private boolean Eliminado;
+
    
    public Vehiculo() {
    }
 
-   public Vehiculo(String placa, String marca, int modelo, float precioDiario, String estado) {
-    Placa = placa;
-    Marca = marca;
-    Modelo = modelo;
-    PrecioDiario = precioDiario;
-    Estado = estado;
+   public Vehiculo(String placa, String marca, int modelo, float precioDiario, String estado, boolean eliminado) {
+      Placa = placa;
+      Marca = marca;
+      Modelo = modelo;
+      PrecioDiario = precioDiario;
+      Estado = estado;
+      Eliminado = eliminado;
    }
 
    public String getPlaca() {
-    return Placa;
+      return Placa;
    }
 
    public void setPlaca(String placa) {
-    Placa = placa;
+      Placa = placa;
    }
 
    public String getMarca() {
-    return Marca;
+      return Marca;
    }
 
    public void setMarca(String marca) {
-    Marca = marca;
+      Marca = marca;
    }
 
    public int getModelo() {
-    return Modelo;
+      return Modelo;
    }
 
    public void setModelo(int modelo) {
-    Modelo = modelo;
+      Modelo = modelo;
    }
 
    public float getPrecioDiario() {
-    return PrecioDiario;
+      return PrecioDiario;
    }
 
    public void setPrecioDiario(float precioDiario) {
-    PrecioDiario = precioDiario;
+      PrecioDiario = precioDiario;
    }
 
    public String getEstado() {
-    return Estado;
+      return Estado;
    }
 
    public void setEstado(String estado) {
-    Estado = estado;
+      Estado = estado;
    }
-   
+
+   public boolean isEliminado() {
+      return Eliminado;
+   }
+
+   public void setEliminado(boolean eliminado) {
+      Eliminado = eliminado;
+   }
+
    
 }
