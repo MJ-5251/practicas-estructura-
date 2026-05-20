@@ -80,6 +80,7 @@ public class metodosclientes {
     public Stack<cliente> Eliminar (Stack<cliente> clientes, LinkedList<ContratoRenting> VectorContratos, Scanner sc){
         ValidacionesClientes v = new ValidacionesClientes();
         ExportarClientes e = new ExportarClientes();
+        ExportarContratos  ec = new ExportarContratos();
         System.out.println("Ingrese la cedula del cliente a eliminar");
         String cedula = v.ValidarSoloNumeros(sc, 7, 11);
         boolean eliminado = false;
@@ -87,9 +88,26 @@ public class metodosclientes {
         for (cliente c : clientes) {
             if(c.getCedula().equals(cedula) && c.isEliminado())
             {
-                c.setEliminado(false);
-                eliminado = true;
-            }
+                boolean eliminar = v.VigenciaContratos(VectorContratos, cedula);
+                if(eliminar)
+                {
+                 // ELIMINAR CLIENTE
+                  c.setEliminado(false);
+                  eliminado = true;
+
+                  // ELIMINAR CONTRATOS RELACIONADOS CON EL CLIENTE
+                  for (ContratoRenting o : VectorContratos) {
+                      if(o.getCedulaCliente.equals(cedula))
+                      {
+                        o.setEliminado(false);
+                      }
+                  }
+                  ec.ExportarArchivo(VectorContratos);
+                }
+                else{
+                    System.out.println("CLIENTE TIENE UN CONTRATO VIGENTE, POR FAVOR PRIMERO TERMINE EL CONTRATO");
+                    break;
+                }
         }
         if (eliminado) {
         System.out.println("Cliente eliminado");
