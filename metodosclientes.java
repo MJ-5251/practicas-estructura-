@@ -92,7 +92,7 @@ public class metodosclientes {
                 if(eliminar)
                 {
                  // ELIMINAR CLIENTE
-                  c.setEliminado(false);
+                  c.setEliminado(true);
                   eliminado = true;
 
                   // ELIMINAR CONTRATOS RELACIONADOS CON EL CLIENTE
