@@ -301,8 +301,18 @@ public class MetodosVehiculo {
         for (Vehiculo vehiculo : VectorVehiculo) {
             if(Placa.equals(vehiculo.getPlaca()) && !vehiculo.isEliminado())
             {
-                 vehiculo.setEliminado(false);
-                 eliminado = true;
+                // VER SI EL VEHICULO ESTA EN USO ANTES DE ELIMANAR
+                if(vehiculo.getEstado().equals("DISPONIBLE"))
+                {
+                    vehiculo.setEliminado(true);
+                    eliminado = true;
+                }
+                else{
+                    System.out.println("VEHICULO ESTA EN USO, NO PUEDE SER ELIMINADO");
+                     e.ExportarArchivo(VectorVehiculo);
+                     return VectorVehiculo;
+                }
+               
             }
         }
         if(eliminado)
