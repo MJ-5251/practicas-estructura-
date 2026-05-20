@@ -6,9 +6,9 @@ public class CamionetaSUV extends Vehiculo{
     {
         
     }
-    public CamionetaSUV(String placa, String marca, int modelo, float precioDiario, String estado, String traccion,
+    public CamionetaSUV(String placa, String marca, int modelo, float precioDiario, String estado,  boolean eliminado, String traccion,
             float capacidadMaletero) {
-        super(placa, marca, modelo, precioDiario, estado);
+        super(placa, marca, modelo, precioDiario, estado, eliminado);
         Traccion = traccion;
         CapacidadMaletero = capacidadMaletero;
     }

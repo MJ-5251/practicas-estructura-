@@ -167,7 +167,7 @@ public class MetodosVehiculo {
         boolean encontrado = false;
         for (Vehiculo vehiculo : VectorVehiculo) {
             
-            if(Placa.equals(vehiculo.getPlaca()))
+            if(Placa.equals(vehiculo.getPlaca()) && vehiculo.isEliminado())
             {
             encontrado = true;
 
@@ -297,8 +297,14 @@ public class MetodosVehiculo {
         ExportarVehiculos  e = new ExportarVehiculos();
         System.out.println("INGRESE LA PLACA DEL VEHICULO QUE DESEA ELIMINAR");
         String Placa = vh.ValidarPlaca(sc);
-        boolean eliminado = VectorVehiculo.removeIf(x -> x.getPlaca().equals(Placa));
-        
+        boolean eliminado = false;
+        for (Vehiculo vehiculo : VectorVehiculo) {
+            if(Placa.equals(vehiculo.getPlaca()) && vehiculo.isEliminado())
+            {
+                 vehiculo.setEliminado(false);
+                 eliminado = true;
+            }
+        }
         if(eliminado)
         {
             System.out.println("VEHICULO ELIMINADO");
@@ -318,7 +324,7 @@ public class MetodosVehiculo {
         String Placa = vh.ValidarPlaca(sc);
         boolean encontrado = false;
         for (Vehiculo vehiculo : VectorVehiculo) {
-              if(Placa.equals(vehiculo.getPlaca()))
+              if(Placa.equals(vehiculo.getPlaca()) && vehiculo.isEliminado())
               {
                 encontrado = true;
                 System.out.println("PLACA: " + vehiculo.getPlaca());
