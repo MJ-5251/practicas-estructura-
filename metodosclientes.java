@@ -108,16 +108,17 @@ public class metodosclientes {
                     System.out.println("CLIENTE TIENE UN CONTRATO VIGENTE, POR FAVOR PRIMERO TERMINE EL CONTRATO");
                     break;
                 }
-        }
-        if (eliminado) {
-        System.out.println("Cliente eliminado");
-        } else {
-        System.out.println("Cliente no encontrado");
+           }
+            if (eliminado) {
+             System.out.println("Cliente eliminado");
+            } else {
+            System.out.println("Cliente no encontrado");
+            }
         }
         e.ExportarArchivo(clientes);
         return clientes;
     }
-
+    
     public static void Buscar (Stack<cliente> clientes, Scanner sc){
         ValidacionesClientes v = new ValidacionesClientes();
         System.out.println("Ingrese la cedula del cliente a buscar");
