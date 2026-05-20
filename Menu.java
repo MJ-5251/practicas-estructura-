@@ -21,16 +21,16 @@ public class Menu
 
       switch (opc) {
         case 1:
-             VectorCliente = m.Llenar(VectorCliente, sc);
+             VectorClientes = m.Llenar(VectorClientes, sc);
             break;
         case 2:
-             VectorCliente = m.Modificar(VectorCliente, sc);
+             VectorClientes = m.Modificar(VectorClientes, sc);
             break;
         case 3:
-            VectorCliente = m.Eliminar(VectorCliente, sc);
+            VectorClientes = m.Eliminar(VectorClientes, VectorContratos, sc);
             break;
         case 4:
-            m.Buscar(VectorCliente, sc);
+            m.Buscar(VectorClientes, sc);
             break;
         case 5:
              continuar = false;
@@ -40,7 +40,7 @@ public class Menu
             break;
         }
       }
-        return VectorCliente;
+        return VectorClientes;
     }
 
    public Queue<Vehiculo> Vehiculos(Queue<Vehiculo> VectorVehiculos)
@@ -97,7 +97,7 @@ public class Menu
 
       switch (opc) {
         case 1:
-             VectorContratos = m.llenar(VectorContratos, sc);
+             VectorContratos = m.llenar(VectorContratos, VectorClientes, VectorVehiculos, sc);
             break;
         case 2:
              VectorContratos = m.Modificar(VectorContratos, sc);
