@@ -1,8 +1,11 @@
 import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
+import java.util.Stack;
+
 
 public class ContratoRentingMetodos {
-    public LinkedList<ContratoRenting> llenar(LinkedList<ContratoRenting> lista, Scanner sc){
+    public LinkedList<ContratoRenting> llenar(LinkedList<ContratoRenting> lista, Stack<cliente> VectorClientes, Queue<Vehiculo> VectorVehiculos, Scanner sc){
         ContratoRenting c = new ContratoRenting();
 
         System.out.println("Ingrese el id del contrato");
