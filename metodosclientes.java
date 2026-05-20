@@ -55,7 +55,7 @@ public class metodosclientes {
         String cedula = vc.ValidarSoloNumeros(sc, 7, 11);
         boolean encontrado = false;
             for (cliente c : clientes) {
-            if (c.getCedula().equals(cedula) && c.isEliminado()) {
+            if (c.getCedula().equals(cedula) && !c.isEliminado()) {
                 encontrado = true;
                 System.out.println("Ingrese el nuevo nombre del cliente");
                 c.setNombre(v.ValidarSoloLetras(sc, 2, 15));
@@ -86,7 +86,7 @@ public class metodosclientes {
         boolean eliminado = false;
 
         for (cliente c : clientes) {
-            if(c.getCedula().equals(cedula) && c.isEliminado())
+            if(c.getCedula().equals(cedula) && !c.isEliminado())
             {
                 boolean eliminar = v.VigenciaContratos(VectorContratos, cedula);
                 if(eliminar)
@@ -125,7 +125,7 @@ public class metodosclientes {
         String cedula = v.ValidarSoloNumeros(sc, 7, 11);
         boolean encontrado = false;
         for (cliente c : clientes) {
-            if (c.getCedula().equals(cedula) && c.isEliminado()) {
+            if (c.getCedula().equals(cedula) && !c.isEliminado()) {
                 System.out.println("Cliente encontrado:");
                 System.out.println("Cedula: " + c.getCedula());
                 System.out.println("Nombre: " + c.getNombre());
