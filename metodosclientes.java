@@ -106,7 +106,8 @@ public class metodosclientes {
                 }
                 else{
                     System.out.println("CLIENTE TIENE UN CONTRATO VIGENTE, POR FAVOR PRIMERO TERMINE EL CONTRATO");
-                    break;
+                    e.ExportarArchivo(clientes);
+                    return clientes;
                 }
            }
             if (eliminado) {
