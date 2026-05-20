@@ -20,7 +20,7 @@ public class ExportarVehiculos {
                     e.write("MODELO:" + o.getModelo() + "\n");
                     e.write("PRECIO_DIARIO:" + o.getPrecioDiario() + "\n");
                     e.write("ESTADO:" + o.getEstado() + "\n");
-
+                    e.write("ELIMINADO:" + o.isEliminado() + "\n");
                     if (o instanceof CarrosSedan)
                     {
                       CarrosSedan s = (CarrosSedan) o;

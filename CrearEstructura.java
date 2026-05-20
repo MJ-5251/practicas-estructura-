@@ -5,30 +5,45 @@ import java.util.Queue;
 public class CrearEstructura{
     public static void CrearClientes()
     {
-        ImportarClientes i = new ImportarClientes();
+        ImportarClientes ic = new ImportarClientes();
+        ImportarContratos i = new ImportarContratos();
         Menu m = new Menu();
+
         Stack<cliente> VectorClientes = new Stack<>();
-        Queue<Vehiculo> VectorVehiculos = new LinkedList<>();
         LinkedList<ContratoRenting> VectorContratos = new LinkedList<>();
 
-        VectorClientes = i.Importar();
-        VectorClientes = m.Clientes(VectorClientes);
+        VectorClientes = ic.Importar();
+        VectorContratos = i.Importar();
+
+        VectorClientes = m.Clientes(VectorClientes, VectorContratos);
     }
 
     public static void CrearVehiculo(){
         Menu m = new Menu();
         ImportarVehiculos i = new ImportarVehiculos();
+
         Queue<Vehiculo> VectorVehiculos = new LinkedList<>();
-        LinkedList<ContratoRenting> VectorContratos = new LinkedList<>();
         
         VectorVehiculos = i.Importar();
+
         VectorVehiculos = m.Vehiculos(VectorVehiculos);
     }
 
     public static void CrearContratos(){
         Menu m = new Menu();
+        ImportarClientes i = new ImportarClientes();
+        ImportarVehiculos iv = new ImportarVehiculos();
+        ImportarContratos ic = new ImportarContratos();
+
+        Stack<cliente> VectorClientes = new Stack<>();
+        Queue<Vehiculo> VectorVehiculos = new LinkedList<>();
         LinkedList<ContratoRenting> VectorContratos = new LinkedList<>();
-        VectorContratos = m.Contratos(VectorContratos);
+
+        VectorClientes = i.Importar();
+        VectorVehiculos = iv.Importar();
+        VectorContratos = ic.Importar();
+
+        VectorContratos = m.Contratos(VectorContratos, VectorClientes, VectorVehiculos);
     }
 
     public static void Informe()
