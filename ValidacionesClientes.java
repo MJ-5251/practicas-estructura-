@@ -51,7 +51,7 @@ public class ValidacionesClientes {
     while (true) {
         Cedula = ValidarSoloNumeros(sc, 7, 11);
         for (cliente o : clientes) {
-            if(Cedula.equals(o.getCedula()))
+            if(Cedula.equals(o.getCedula()) && o.isEliminado())
             {
                 encontrado = true;
             }

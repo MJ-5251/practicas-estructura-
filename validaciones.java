@@ -43,7 +43,7 @@ public class validaciones {
     while (true) {
         Entrada = sc.nextLine().trim().replaceAll("\\s+", "");
         
-        if (!Entrada.isEmpty() && Entrada.matches("[0-9]+")) {
+        if (!Entrada.isEmpty() && Entrada.matches("[0-9]+") && Entrada.length() <= 5) {
             break;
         }
         System.out.println("POR FAVOR INGRESE UN DIGITO NUMERICO");
