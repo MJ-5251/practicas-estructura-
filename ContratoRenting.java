@@ -7,12 +7,13 @@ public class ContratoRenting {
     private int TotalDias;
     private float ValorTotal;
     private String Estado;
-    
+    private boolean Eliminado;
+
     public ContratoRenting() {
     }
 
     public ContratoRenting(String idContrato, String cedulaCliente, String placaVehiculo, String fechaInicio,
-            String fechaFin, int totalDias, float valorTotal, String estado) {
+            String fechaFin, int totalDias, float valorTotal, String estado, boolean eliminado) {
         IdContrato = idContrato;
         CedulaCliente = cedulaCliente;
         PlacaVehiculo = placaVehiculo;
@@ -21,6 +22,7 @@ public class ContratoRenting {
         TotalDias = totalDias;
         ValorTotal = valorTotal;
         Estado = estado;
+        Eliminado = eliminado;
     }
 
     public String getIdContrato() {
@@ -85,6 +87,14 @@ public class ContratoRenting {
 
     public void setEstado(String estado) {
         Estado = estado;
+    }
+
+    public boolean isEliminado() {
+        return Eliminado;
+    }
+
+    public void setEliminado(boolean eliminado) {
+        Eliminado = eliminado;
     }
 
     
