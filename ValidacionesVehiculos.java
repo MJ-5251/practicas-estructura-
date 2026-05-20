@@ -50,7 +50,7 @@ public class ValidacionesVehiculos {
     return Float.parseFloat(Entrada);
     }
 
-    // VALIDAR PLACAa REPETIDA
+    // VALIDAR PLACA REPETIDA
    public String PlacaRepetida(Scanner sc, Queue<Vehiculo> Vehiculos)
    {
     String Placa;
@@ -59,7 +59,7 @@ public class ValidacionesVehiculos {
     while (true) {
         Placa = ValidarPlaca(sc);
         for (Vehiculo o : Vehiculos) {
-            if(Placa.equals(o.getPlaca()))
+            if(Placa.equals(o.getPlaca()) && !o.isEliminado())
             {
                 encontrado = true;
             }
