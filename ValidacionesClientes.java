@@ -1,3 +1,4 @@
+import java.util.LinkedList;
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -51,7 +52,7 @@ public class ValidacionesClientes {
     while (true) {
         Cedula = ValidarSoloNumeros(sc, 7, 11);
         for (cliente o : clientes) {
-            if(Cedula.equals(o.getCedula()))
+            if(Cedula.equals(o.getCedula()) && o.isEliminado())
             {
                 encontrado = true;
             }
@@ -76,5 +77,18 @@ public class ValidacionesClientes {
         }
     }
     return Cedula;
+   }
+
+   // VALIDAR VIGENCIA DE CONTRATOS
+   public boolean VigenciaContratos(LinkedList<ContratoRenting> VectorContratos, String Cedula)
+   {
+     boolean eliminar = true;
+     for (ContratoRenting c : VectorContratos) {
+        if(c.getCedulaCliente.equals(Cedula) && c.isEliminado() && c.getEstado.equals("ACTIVO"))
+        {
+            eliminar = false;
+        }
+     }
+     return eliminar;
    }
 }
