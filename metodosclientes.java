@@ -97,7 +97,7 @@ public class metodosclientes {
 
                   // ELIMINAR CONTRATOS RELACIONADOS CON EL CLIENTE
                   for (ContratoRenting o : VectorContratos) {
-                      if(o.getCedulaCliente.equals(cedula))
+                      if(o.getCedulaCliente().equals(cedula))
                       {
                         o.setEliminado(false);
                       }
