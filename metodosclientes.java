@@ -99,7 +99,7 @@ public class metodosclientes {
                   for (ContratoRenting o : VectorContratos) {
                       if(o.getCedulaCliente().equals(cedula))
                       {
-                        o.setEliminado(false);
+                        o.setEliminado(true);
                       }
                   }
                   ec.ExportarArchivo(VectorContratos);
