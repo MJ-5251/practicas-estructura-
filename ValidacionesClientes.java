@@ -52,7 +52,7 @@ public class ValidacionesClientes {
     while (true) {
         Cedula = ValidarSoloNumeros(sc, 7, 11);
         for (cliente o : clientes) {
-            if(Cedula.equals(o.getCedula()) && o.isEliminado())
+            if(Cedula.equals(o.getCedula()) && !o.isEliminado())
             {
                 encontrado = true;
             }
@@ -84,7 +84,7 @@ public class ValidacionesClientes {
    {
      boolean eliminar = true;
      for (ContratoRenting c : VectorContratos) {
-        if(c.getCedulaCliente().equals(Cedula) && c.isEliminado() && c.getEstado().equals("ACTIVO"))
+        if(c.getCedulaCliente().equals(Cedula) && !c.isEliminado() && c.getEstado().equals("ACTIVO"))
         {
             eliminar = false;
         }
