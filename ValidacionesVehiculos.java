@@ -50,6 +50,44 @@ public class ValidacionesVehiculos {
     return Float.parseFloat(Entrada);
     }
 
+    // VALIDAR FECHA
+    public String ValidarFecha(Scanner sc) {
+    String fecha;
+    
+    while (true) {
+        fecha = sc.nextLine().trim().replaceAll("\\s+", "");
+        
+        if (fecha.matches("\\d{2}/\\d{2}/\\d{4}")) {
+            String[] partes = fecha.split("/");
+            int Dia = Integer.parseInt(partes[0]);
+            int Mes = Integer.parseInt(partes[1]);
+            int Anio = Integer.parseInt(partes[2]);
+            
+            if (Mes >= 1 && Mes <= 12 && Anio >= 2000 && Anio <= 2100) {
+                
+                int MaxDias;
+                if (Mes == 2) {
+                    if ((Anio % 4 == 0 && Anio % 100 != 0) || (Anio % 400 == 0)) {
+                        MaxDias = 29;
+                    } else {
+                        MaxDias = 28;
+                    }
+                } else if (Mes == 4 || Mes == 6 || Mes == 9 || Mes == 11) {
+                    MaxDias = 30;
+                } else {
+                    MaxDias = 31;
+                }
+                
+                if (Dia >= 1 && Dia <= MaxDias) {
+                    break;
+                }
+            }
+        }
+        System.out.println("ERROR: FECHA INVÁLIDA, FORMATO DD/MM/AAAA, EJEMPLO: 15/05/2024");
+    }
+    return fecha;
+    }
+
     // VALIDAR PLACA REPETIDA
    public String PlacaRepetida(Scanner sc, Queue<Vehiculo> Vehiculos)
    {
@@ -84,5 +122,39 @@ public class ValidacionesVehiculos {
         }
     }
     return Placa;
+   }
+
+   // VALIDAR CLIENTE EXISTENTE
+   public String ClienteExistente(Stack<cliente> VectorClientes, Scanner sc)
+   {
+      ValidacionesClientes v = new ValidacionesClientes();
+      String Cedula;
+      // LEER CEDULA
+      Cedula = v.ValidarSoloNumeros(sc, 7, 11);
+
+      // VERIFICAR QUE EXISTA
+      for (cliente o : VectorClientes) {
+         if(o.getCedulaCliente().equals(Cedula) && !o.isEliminado)
+         {
+            return Cedula = "SALIR";
+         }
+      }
+      return Cedula;
+   }
+
+   // VALIDAR VEHIUCLO EXISTENTE
+   public String VehiucloExistente(Queue<Vehiculo> VectorVehiculos, Scanner sc)
+   {
+      String Placa;
+      // LEER CEDULA
+      Placa = ValidarPlaca(sc);
+      // VERIFICAR QUE EXISTA
+      for (Vehiculo o : VectorVehiculos) {
+         if(o.getPlacaVehiculo().equals(Placa) && !o.isEliminado)
+         {
+            return Placa = "SALIR";
+         }
+      }
+      return Placa;
    }
 }
