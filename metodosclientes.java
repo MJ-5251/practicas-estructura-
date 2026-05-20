@@ -52,11 +52,9 @@ public class metodosclientes {
         ExportarClientes e = new ExportarClientes();
         System.out.println("Ingrese la cedula del cliente a modificar");
         String cedula = vc.ValidarSoloNumeros(sc, 7, 11);
-        Stack<cliente> aux = new Stack<>();
         boolean encontrado = false;
-        while (!clientes.isEmpty()) {
-            cliente c = clientes.pop();
-            if (c.getCedula().equals(cedula)) {
+            for (cliente c : clientes) {
+            if (c.getCedula().equals(cedula) && c.isEliminado()) {
                 encontrado = true;
                 System.out.println("Ingrese el nuevo nombre del cliente");
                 c.setNombre(v.ValidarSoloLetras(sc, 2, 15));
@@ -69,12 +67,8 @@ public class metodosclientes {
 
                 System.out.println("Ingrese la nueva direccion del cliente");
                 c.setDireccion(vc.ValidarDireccion(sc));
+             }
             }
-            aux.push(c);
-        }
-        while (!aux.isEmpty()) {
-            clientes.push(aux.pop());
-        }
         if (!encontrado) {
             System.out.println("Cliente no encontrado");
         }
@@ -87,9 +81,15 @@ public class metodosclientes {
         ExportarClientes e = new ExportarClientes();
         System.out.println("Ingrese la cedula del cliente a eliminar");
         String cedula = v.ValidarSoloNumeros(sc, 7, 11);
+        boolean eliminado = false;
 
-        boolean eliminado = clientes.removeIf(c -> c.getCedula().equals(cedula));
-
+        for (cliente c : clientes) {
+            if(c.getCedula().equals(cedula) && c.isEliminado())
+            {
+                c.setEliminado(false);
+                eliminado = true;
+            }
+        }
         if (eliminado) {
         System.out.println("Cliente eliminado");
         } else {
@@ -105,7 +105,7 @@ public class metodosclientes {
         String cedula = v.ValidarSoloNumeros(sc, 7, 11);
         boolean encontrado = false;
         for (cliente c : clientes) {
-            if (c.getCedula().equals(cedula)) {
+            if (c.getCedula().equals(cedula) && c.isEliminado()) {
                 System.out.println("Cliente encontrado:");
                 System.out.println("Cedula: " + c.getCedula());
                 System.out.println("Nombre: " + c.getNombre());
