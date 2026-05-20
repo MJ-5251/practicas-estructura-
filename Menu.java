@@ -5,7 +5,7 @@ import java.util.Stack;
 
 public class Menu
 {
-   public Stack<cliente> Clientes(Stack<cliente> VectorCliente)
+   public Stack<cliente> Clientes(Stack<cliente> VectorClientes, LinkedList<ContratoRenting> VectorContratos)
    {
       Scanner sc = new Scanner(System.in);
       metodosclientes m = new metodosclientes();
@@ -81,7 +81,7 @@ public class Menu
        return VectorVehiculos;
     }
 
-   public LinkedList<ContratoRenting> Contratos(LinkedList<ContratoRenting> VectorContratos)
+   public LinkedList<ContratoRenting> Contratos(LinkedList<ContratoRenting> VectorContratos, Stack<cliente> VectorClientes, Queue<Vehiculo> VectorVehiculos)
    {
       Scanner sc = new Scanner(System.in);
       ContratoRentingMetodos m = new ContratoRentingMetodos();
