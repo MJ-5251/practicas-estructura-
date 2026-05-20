@@ -99,14 +99,15 @@ public class metodosclientes {
                   for (ContratoRenting o : VectorContratos) {
                       if(o.getCedulaCliente().equals(cedula))
                       {
-                        o.setEliminado(false);
+                        o.setEliminado(true);
                       }
                   }
                   ec.ExportarArchivo(VectorContratos);
                 }
                 else{
                     System.out.println("CLIENTE TIENE UN CONTRATO VIGENTE, POR FAVOR PRIMERO TERMINE EL CONTRATO");
-                    break;
+                    e.ExportarArchivo(clientes);
+                    return clientes;
                 }
            }
             if (eliminado) {
