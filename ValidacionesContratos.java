@@ -1,3 +1,4 @@
+import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 import java.util.Stack;
@@ -15,10 +16,10 @@ public class ValidacionesContratos {
       for (cliente o : VectorClientes) {
          if(o.getCedula().equals(Cedula) && !o.isEliminado())
          {
-            return Cedula = "SALIR";
+            return Cedula;
          }
       }
-      return Cedula;
+      return Cedula = "SALIR";
    }
 
    // VALIDAR VEHIUCLO EXISTENTE
@@ -32,10 +33,10 @@ public class ValidacionesContratos {
       for (Vehiculo o : VectorVehiculos) {
          if(o.getPlaca().equals(Placa) && !o.isEliminado())
          {
-            return Placa = "SALIR";
+            return Placa;
          }
       }
-      return Placa;
+      return Placa = "SALIR";;
    }
 
    // VALIDAR FECHA
@@ -75,4 +76,17 @@ public class ValidacionesContratos {
     }
     return fecha;
     }
+
+    // VALIDAR VIGENCIA DE CONTRATOS
+   public boolean VigenciaContratos(LinkedList<ContratoRenting> VectorContratos, String Cedula)
+   {
+     boolean eliminar = true;
+     for (ContratoRenting c : VectorContratos) {
+        if(c.getCedulaCliente().equals(Cedula) && !c.isEliminado() && c.getEstado().equals("ACTIVO"))
+        {
+            eliminar = false;
+        }
+     }
+     return eliminar;
+   }
 }
