@@ -34,24 +34,6 @@ public class ValidacionesVehiculos {
         return Modelo;
     }
 
-    public float ValidarFloat(Scanner sc) {
-    String Entrada = "";
-    while (true) {
-        Entrada = sc.nextLine().trim().replaceAll("\\s+", "");
-        
-        if (!Entrada.isEmpty() && Entrada.matches("[0-9]+(\\.[0-9]+)?")) {
-            float Numero = Float.parseFloat(Entrada);
-            if (Numero > 0) {
-                break;
-            }
-        }
-        System.out.println("POR FAVOR INGRESE UN VALOR NUMERICO POSITIVO");
-    }
-    return Float.parseFloat(Entrada);
-    }
-
-    
-
     // VALIDAR PLACA REPETIDA
    public String PlacaRepetida(Scanner sc, Queue<Vehiculo> Vehiculos)
    {
