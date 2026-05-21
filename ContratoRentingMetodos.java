@@ -22,7 +22,7 @@ public class ContratoRentingMetodos {
             int numero = Integer.parseInt(lista.getLast().getIdContrato());
              c.setIdContrato(String.valueOf(numero + 1));
          }
-          System.out.println("SU ID ES: " + c.getIdContrato());
+          System.out.println("SU ID ES: " + c.getIdContrato() + 1);
 
          System.out.println("INGRESE LA CEDULA DEL CLIENTE");
          String Cedula = vc.ClienteExistente(VectorClientes, sc);
@@ -87,7 +87,7 @@ public class ContratoRentingMetodos {
         ValidacionesClientes V = new ValidacionesClientes();
         ExportarContratos e = new ExportarContratos();
         System.out.println("INGRESE EL ID DEL CONTRATO A MODIFICAR");
-        String id = v.ValidarSoloNumeros(sc, 5, 10);
+        String id = v.ValidarSoloNumeros(sc, 4, 10);
         for (ContratoRenting c : lista) {
             if (c.getIdContrato().equals(id) && !c.isEliminado()) {
 
@@ -111,8 +111,9 @@ public class ContratoRentingMetodos {
     {
         validaciones  v = new validaciones();
         ExportarContratos e = new ExportarContratos();
+        ExportarVehiculos e = new  ExportarVehiculos();
         System.out.println("INGRESE EL ID DEL CONTRATO  QUE DESEA FINALIZAR");
-        String Id = v.ValidarSoloNumeros(sc, 5, 10);
+        String Id = v.ValidarSoloNumeros(sc, 4, 10);
         boolean encontrado = false;
         for (ContratoRenting c : lista) {
             if(c.getIdContrato().equals(Id))
@@ -125,6 +126,7 @@ public class ContratoRentingMetodos {
                      if(o.getPlaca().equals(c.getPlacaVehiculo()))
                      {
                         o.setEstado("DISPONIBLE");
+                        e.ExportarArchivo(VectorVehiculos);
                      }
                 }
             }
@@ -146,7 +148,7 @@ public class ContratoRentingMetodos {
         validaciones  v = new validaciones();
         ExportarContratos e = new ExportarContratos();
         System.out.println("INGRESE EL ID DEL CONTRATO  QUE DESEA FINALIZAR");
-        String Id = v.ValidarSoloNumeros(sc, 5, 10);
+        String Id = v.ValidarSoloNumeros(sc, 4, 10);
         boolean encontrado = false; 
         
         for (ContratoRenting c : lista) {
