@@ -27,7 +27,7 @@ public class ImportarContratos {
                         VectorContratos.add(d);
                     }
                     d = new ContratoRenting();
-                    d.setIdContrato(Linea.substring(7));
+                    d.setIdContrato(Linea.substring(12));
                 }
                 else if(Linea.startsWith("CEDULA_CLIENTE:"))
                 {
