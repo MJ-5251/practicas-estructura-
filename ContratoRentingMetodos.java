@@ -80,9 +80,10 @@ public class ContratoRentingMetodos {
         ValidacionesContratos vc = new ValidacionesContratos();
         validaciones  v = new validaciones();
         ValidacionesVehiculos vh = new ValidacionesVehiculos();
+        ValidacionesClientes V = new ValidacionesClientes();
         ExportarContratos e = new ExportarContratos();
         System.out.println("INGRESE EL ID DEL CONTRATO A MODIFICAR");
-        String id = v.ValidarEntero(sc);
+        String id = V.ValidarSoloNumeros(sc, 5, 7);
         for (ContratoRenting c : lista) {
             if (c.getIdContrato().equals(id) && !c.isEliminado()) {
 
