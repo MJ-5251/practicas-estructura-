@@ -180,6 +180,8 @@ public class ContratoRentingMetodos {
                 System.out.println("FECHA_FIN: " + c.getFechaFin());
                 System.out.println("TOTAL_DIAS: " + c.getTotalDias());
                 System.out.println("VALOR_TOTAL: " + c.getValorTotal());
+                System.out.println("ESTADO_CONTRATO: " + c.getEstado());
+
             }
         }
 
