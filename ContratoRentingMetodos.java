@@ -62,7 +62,7 @@ public class ContratoRentingMetodos {
         System.out.println("INGRESE EL TOTAL DE DIAS");
             c.setTotalDias(v.ValidarEntero(sc));
 
-            c.setValorTotal(v.ValidarFloat(vc.ValorTotal(c.getTotalDias(), c.getPlacaVehiculo(), VectorVehiculos)));
+            c.setValorTotal(vc.ValorTotal(vc.ValorTotal(c.getTotalDias(), c.getPlacaVehiculo(), VectorVehiculos)));
         
             c.setEstado("ACTIVO");
             lista.add(c);
@@ -100,7 +100,7 @@ public class ContratoRentingMetodos {
                 System.out.println("INGRESE EL TOTAL DE DIAS");
                 c.setTotalDias(v.ValidarEntero(sc));
 
-                c.setValorTotal(v.ValidarFloat(vc.ValorTotal(c.getTotalDias(), c.getPlacaVehiculo(), VectorVehiculos)));
+                c.setValorTotal(vc.ValorTotal(vc.ValorTotal(c.getTotalDias(), c.getPlacaVehiculo(), VectorVehiculos)));
             }
         }
         e.ExportarArchivo(lista);
