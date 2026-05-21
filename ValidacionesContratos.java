@@ -23,9 +23,10 @@ public class ValidacionesContratos {
    }
 
    // VALIDAR VEHIUCLO EXISTENTE
-   public String VehiucloExistente(Queue<Vehiculo> VectorVehiculos, Scanner sc)
+   public String VehiucloExistente(Queue<Vehiculo> ExportarVehiculos, Scanner sc)
    {
       ValidacionesVehiculos v = new ValidacionesVehiculos();
+       ExportarVehiculos e = new  ExportarVehiculos();
       String Placa;
       // LEER CEDULA
       Placa = v.ValidarPlaca(sc);
@@ -33,6 +34,8 @@ public class ValidacionesContratos {
       for (Vehiculo o : VectorVehiculos) {
          if(o.getPlaca().equals(Placa) && !o.isEliminado())
          {
+            o.setEstado("OCUPADO");
+            e.ExportarArchivo(ExportarVehiculos);
             return Placa;
          }
       }
