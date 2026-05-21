@@ -62,8 +62,7 @@ public class ContratoRentingMetodos {
         System.out.println("INGRESE EL TOTAL DE DIAS");
             c.setTotalDias(v.ValidarEntero(sc));
 
-         System.out.println("INGRESE EL VALOR TOTAL");
-            c.setValorTotal(vh.ValidarFloat(sc));
+            c.setValorTotal(v.ValidarFloat(vc.ValorTotal(c.getTotalDias(), c.getPlacaVehiculo(), VectorVehiculos)));
         
             c.setEstado("ACTIVO");
             lista.add(c);
@@ -81,7 +80,7 @@ public class ContratoRentingMetodos {
         return lista; 
     }
 
-    public LinkedList<ContratoRenting> Modificar(LinkedList<ContratoRenting> lista, Scanner sc){
+    public LinkedList<ContratoRenting> Modificar(LinkedList<ContratoRenting> lista, Queue<Vehiculo> VectorVehiculos, Scanner sc){
         ValidacionesContratos vc = new ValidacionesContratos();
         validaciones  v = new validaciones();
         ValidacionesVehiculos vh = new ValidacionesVehiculos();
@@ -101,8 +100,7 @@ public class ContratoRentingMetodos {
                 System.out.println("INGRESE EL TOTAL DE DIAS");
                 c.setTotalDias(v.ValidarEntero(sc));
 
-                System.out.println("INGRESE EL VALOR TOTAL");
-                c.setValorTotal(vh.ValidarFloat(sc));
+                c.setValorTotal(v.ValidarFloat(vc.ValorTotal(c.getTotalDias(), c.getPlacaVehiculo(), VectorVehiculos)));
             }
         }
         e.ExportarArchivo(lista);
