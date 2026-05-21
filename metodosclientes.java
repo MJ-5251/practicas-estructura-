@@ -27,7 +27,7 @@ public class metodosclientes {
         System.out.println("INGRESE EL APELLIDO");
         c.setApellido(v.ValidarSoloLetras(sc, 2, 15));
         System.out.println("INGRESE EL TELEFONO DEL CLIENTE");
-        c.setTelefono(vc.ValidarSoloNumeros(sc, 10, 10));
+        c.setTelefono(v.ValidarSoloNumeros(sc, 10, 10));
         System.out.println("INGRESE LA DIRECCION DEL CLIENTE");
         c.setDireccion(vc.ValidarDireccion(sc));
         c.setLicenciaConduccion(c.getCedula());
@@ -52,7 +52,7 @@ public class metodosclientes {
         validaciones v = new validaciones();
         ExportarClientes e = new ExportarClientes();
         System.out.println("Ingrese la cedula del cliente a modificar");
-        String cedula = vc.ValidarSoloNumeros(sc, 7, 11);
+        String cedula = v.ValidarSoloNumeros(sc, 7, 11);
         boolean encontrado = false;
             for (cliente c : clientes) {
             if (c.getCedula().equals(cedula) && !c.isEliminado()) {
@@ -64,7 +64,7 @@ public class metodosclientes {
                 c.setApellido(v.ValidarSoloLetras(sc, 2, 15));
 
                 System.out.println("Ingrese el nuevo telefono del cliente");
-                c.setTelefono(vc.ValidarSoloNumeros(sc, 10, 10));
+                c.setTelefono(v.ValidarSoloNumeros(sc, 10, 10));
 
                 System.out.println("Ingrese la nueva direccion del cliente");
                 c.setDireccion(vc.ValidarDireccion(sc));
@@ -79,10 +79,11 @@ public class metodosclientes {
 
     public Stack<cliente> Eliminar (Stack<cliente> clientes, LinkedList<ContratoRenting> VectorContratos, Scanner sc){
         ValidacionesClientes v = new ValidacionesClientes();
+        validaciones V = new validaciones();
         ExportarClientes e = new ExportarClientes();
         ExportarContratos  ec = new ExportarContratos();
         System.out.println("Ingrese la cedula del cliente a eliminar");
-        String cedula = v.ValidarSoloNumeros(sc, 7, 11);
+        String cedula = V.ValidarSoloNumeros(sc, 7, 11);
         boolean eliminado = false;
 
         for (cliente c : clientes) {
@@ -121,7 +122,7 @@ public class metodosclientes {
     }
     
     public static void Buscar (Stack<cliente> clientes, Scanner sc){
-        ValidacionesClientes v = new ValidacionesClientes();
+        validaciones v = new validaciones();
         System.out.println("Ingrese la cedula del cliente a buscar");
         String cedula = v.ValidarSoloNumeros(sc, 7, 11);
         boolean encontrado = false;
