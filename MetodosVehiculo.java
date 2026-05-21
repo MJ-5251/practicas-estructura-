@@ -156,7 +156,7 @@ public class MetodosVehiculo {
         return VectorVehiculo; 
     }
 
-    public Queue<Vehiculo> Modificar(Queue<Vehiculo> VectorVehiculo)
+    public Queue<Vehiculo> Modificar(Queue<Vehiculo> VectorVehiculo, LinkedList<ContratoRenting> VectorContratos)
     {
         Scanner sc = new Scanner(System.in);
         validaciones v = new validaciones();
@@ -178,6 +178,18 @@ public class MetodosVehiculo {
             System.out.println("INGRESE EL PRECIO DIARIO DEL VEHICULO");
             vehiculo.setPrecioDiario(v.ValidarFloat(sc));
             boolean seguir = true;
+
+            // VERIFICAR QUE EL VEHIUCLO NO ESTA EN UN CONTRATO
+            boolean  encontrado = false;
+            for (ContratoRenting o : VectorContratos) {
+                if(o.getPlacaVehiculo().equals(Placa) && !o.isEliminado && o.getEstado().equals("ACTIVO"))
+                {
+                    encontrado = true;
+                }
+            }
+            
+            if(!encontrado)
+            {
             while (seguir) {
             System.out.println("INGRESE EL ESTADO DEL VEHICULO");
             System.out.println("1. DISPONIBLE");
@@ -196,7 +208,9 @@ public class MetodosVehiculo {
                     System.out.println("OPCION INVALIDA");
                     break;
               }
+             }
             }
+
             
         if (vehiculo instanceof CarrosSedan) {
 
