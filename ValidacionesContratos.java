@@ -34,7 +34,7 @@ public class ValidacionesContratos {
       for (Vehiculo o : VectorVehiculos) {
          if(o.getPlaca().equals(Placa) && !o.isEliminado())
          {
-            if(o.getEstado.equals("DISPONIBLE"))
+            if(o.getEstado().equals("DISPONIBLE"))
             {
             o.setEstado("OCUPADO");
             e.ExportarArchivo(VectorVehiculos);
