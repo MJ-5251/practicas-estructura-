@@ -98,5 +98,6 @@ public class ValidacionesContratos {
              return Total;
           }
       }
+      return Total;
     }
 }
