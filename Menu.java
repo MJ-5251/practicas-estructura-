@@ -43,7 +43,7 @@ public class Menu
         return VectorClientes;
     }
 
-   public Queue<Vehiculo> Vehiculos(Queue<Vehiculo> VectorVehiculos)
+   public Queue<Vehiculo> Vehiculos(Queue<Vehiculo> VectorVehiculos, LinkedList<ContratoRenting> VectorContratos)
    {
       Scanner sc = new Scanner(System.in);
       MetodosVehiculo m = new MetodosVehiculo();
@@ -62,7 +62,7 @@ public class Menu
              VectorVehiculos = m.Registrar(VectorVehiculos);
             break;
         case 2:
-             VectorVehiculos = m.Modificar(VectorVehiculos);
+             VectorVehiculos = m.Modificar(VectorVehiculos, VectorContratos);
             break;
         case 3:
             VectorVehiculos = m.Eliminar(VectorVehiculos);
