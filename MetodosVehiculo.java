@@ -164,6 +164,17 @@ public class MetodosVehiculo {
         ExportarVehiculos  e = new ExportarVehiculos();
         System.out.println("INGRESE LA PLACA DEL VEHICULO QUE DESEA MODIFICAR");
         String Placa = vh.ValidarPlaca(sc);
+        // VERIFICAR QUE EL VEHIUCLO NO ESTA EN UN CONTRATO
+        boolean  Enc = false;
+        for (ContratoRenting o : VectorContratos) {
+            if(o.getPlacaVehiculo().equals(Placa) && !o.isEliminado && o.getEstado().equals("ACTIVO"))
+                {
+                    Enc = true;
+                }
+        }
+
+  if(!Enc)
+  {
         boolean encontrado = false;
         for (Vehiculo vehiculo : VectorVehiculo) {
             
@@ -179,17 +190,9 @@ public class MetodosVehiculo {
             vehiculo.setPrecioDiario(v.ValidarFloat(sc));
             boolean seguir = true;
 
-            // VERIFICAR QUE EL VEHIUCLO NO ESTA EN UN CONTRATO
-            boolean  encontrado = false;
-            for (ContratoRenting o : VectorContratos) {
-                if(o.getPlacaVehiculo().equals(Placa) && !o.isEliminado && o.getEstado().equals("ACTIVO"))
-                {
-                    encontrado = true;
-                }
-            }
+ 
             
-            if(!encontrado)
-            {
+
             while (seguir) {
             System.out.println("INGRESE EL ESTADO DEL VEHICULO");
             System.out.println("1. DISPONIBLE");
@@ -209,7 +212,7 @@ public class MetodosVehiculo {
                     break;
               }
              }
-            }
+            
 
             
         if (vehiculo instanceof CarrosSedan) {
@@ -301,8 +304,14 @@ public class MetodosVehiculo {
         System.out.println("VEHICULO NO ENCONTRADO");
     }
     e.ExportarArchivo(VectorVehiculo);
+  }
+  else
+  {
+    System.out.println("VEHICULO ESTA EN UN CONTRATO ACTUALMENTE, NO PUEDE SER MODIFICADO");
+  }
+
     return VectorVehiculo;
-    }
+}
 
        public Queue<Vehiculo>  Eliminar(Queue<Vehiculo> VectorVehiculo)
        {
