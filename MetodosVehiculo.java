@@ -167,7 +167,7 @@ public class MetodosVehiculo {
         // VERIFICAR QUE EL VEHIUCLO NO ESTA EN UN CONTRATO
         boolean  Enc = false;
         for (ContratoRenting o : VectorContratos) {
-            if(o.getPlacaVehiculo().equals(Placa) && !o.isEliminado && o.getEstado().equals("ACTIVO"))
+            if(o.getPlacaVehiculo().equals(Placa)  && o.getEstado().equals("ACTIVO"))
                 {
                     Enc = true;
                 }
@@ -312,6 +312,7 @@ public class MetodosVehiculo {
 
     return VectorVehiculo;
 }
+
 
        public Queue<Vehiculo>  Eliminar(Queue<Vehiculo> VectorVehiculo)
        {
