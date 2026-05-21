@@ -44,6 +44,11 @@ public class ContratoRentingMetodos {
             e.ExportarArchivo(lista);
             return lista;
             }
+            else if(Placa.equals("OCUPADO")){
+            System.out.println("VEHICULO OCUPADO, POR FAVOR ELIJA OTRO");
+            e.ExportarArchivo(lista);
+            return lista;
+            }
            else{
             c.setPlacaVehiculo(Placa);
             }
