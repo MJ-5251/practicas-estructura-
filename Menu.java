@@ -100,13 +100,13 @@ public class Menu
              VectorContratos = m.llenar(VectorContratos, VectorClientes, VectorVehiculos, sc);
             break;
         case 2:
-             VectorContratos = m.Modificar(VectorContratos, sc);
+             VectorContratos = m.Modificar(VectorContratos, VectorVehiculos, sc);
             break;
         case 3:
-            System.out.println("NO DISPONIBLE");
+            VectorContratos = m.Finalizar(VectorContratos, VectorVehiculos, sc);
             break;
         case 4:
-            System.out.println("NO DISPONIBLE");
+            m.Buscar(VectorContratos, sc);
             break;
         case 5:
              continuar = false;
