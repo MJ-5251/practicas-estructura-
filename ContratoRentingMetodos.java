@@ -121,10 +121,10 @@ public class ContratoRentingMetodos {
                 encontrado = true;
 
                 // PONER EL VEHICULO DISPONIBLE
-                for (Vehiculo v : VectorVehiculos) {
-                     if(v.getPlaca().equals(c.getPlacaVehiculo()))
+                for (Vehiculo o : VectorVehiculos) {
+                     if(o.getPlaca().equals(c.getPlacaVehiculo()))
                      {
-                        v.setEstado("DISPONIBLE");
+                        o.setEstado("DISPONIBLE");
                      }
                 }
             }
