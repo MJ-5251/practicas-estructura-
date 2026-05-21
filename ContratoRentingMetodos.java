@@ -62,7 +62,7 @@ public class ContratoRentingMetodos {
         System.out.println("INGRESE EL TOTAL DE DIAS");
             c.setTotalDias(v.ValidarEntero(sc));
 
-            c.setValorTotal(v.ValidarFloat(vc.ValorTotal(c.getTotalDias(), c.getPlacaVehiculo(), VectorVehiculos)));
+            c.setValorTotal(vc.ValorTotal(vc.ValorTotal(c.getTotalDias(), c.getPlacaVehiculo(), VectorVehiculos)));
         
             c.setEstado("ACTIVO");
             lista.add(c);
@@ -87,7 +87,7 @@ public class ContratoRentingMetodos {
         ValidacionesClientes V = new ValidacionesClientes();
         ExportarContratos e = new ExportarContratos();
         System.out.println("INGRESE EL ID DEL CONTRATO A MODIFICAR");
-        String id = V.ValidarSoloNumeros(sc, 5, 7);
+        String id = v.ValidarSoloNumeros(sc, 5, 10);
         for (ContratoRenting c : lista) {
             if (c.getIdContrato().equals(id) && !c.isEliminado()) {
 
@@ -100,13 +100,73 @@ public class ContratoRentingMetodos {
                 System.out.println("INGRESE EL TOTAL DE DIAS");
                 c.setTotalDias(v.ValidarEntero(sc));
 
-                c.setValorTotal(v.ValidarFloat(vc.ValorTotal(c.getTotalDias(), c.getPlacaVehiculo(), VectorVehiculos)));
+                c.setValorTotal(vc.ValorTotal(vc.ValorTotal(c.getTotalDias(), c.getPlacaVehiculo(), VectorVehiculos)));
             }
         }
         e.ExportarArchivo(lista);
         return lista;
     }
 
-    
+    public LinkedList<ContratoRenting> Finalizar(LinkedList<ContratoRenting> lista, Queue<Vehiculo> VectorVehiculos, Scanner sc)
+    {
+        validaciones  v = new validaciones();
+        ExportarContratos e = new ExportarContratos();
+        System.out.println("INGRESE EL ID DEL CONTRATO  QUE DESEA FINALIZAR");
+        String Id = v.ValidarSoloNumeros(sc, 5, 10);
+        boolean encontrado = false;
+        for (ContratoRenting c : lista) {
+            if(c.getIdContrato().equals(Id))
+            {
+                c.setEstado("FINALIZADO");
+                encontrado = true;
+
+                // PONER EL VEHICULO DISPONIBLE
+                for (Vehiculo v : VectorVehiculos) {
+                     if(v.getPlaca().equals(c.getPlacaVehiculo()))
+                     {
+                        v.setEstado("DISPONIBLE");
+                     }
+                }
+            }
+        }
+
+        if(encontrado)
+        {
+            System.out.println("CONTRATO FINALIZADO");
+        }
+        else{
+            System.out.println("CONTRATO NO ENCONTRADO");
+        }
+        e.ExportarArchivo(lista);
+        return lista;
+    }
+
+    public static void Buscar(LinkedList<ContratoRenting> lista, Scanner sc)
+    {
+        validaciones  v = new validaciones();
+        ExportarContratos e = new ExportarContratos();
+        System.out.println("INGRESE EL ID DEL CONTRATO  QUE DESEA FINALIZAR");
+        String Id = v.ValidarSoloNumeros(sc, 5, 10);
+        boolean encontrado = false; 
+        
+        for (ContratoRenting c : lista) {
+            if(c.getIdContrato().equals(Id)){
+                encontrado = true;
+
+                System.out.println("ID_CONTRATO: " + c.getIdContrato());
+                System.out.println("CEDULA_CLIENGTE: " + c.getCedulaCliente());
+                System.out.println("PLACA_VEHICULO: " + c.getPlacaVehiculo());
+                System.out.println("FECHE_INICIO: " + c.getFechaInicio());
+                System.out.println("FECHA_FIN: " + c.getFechaFin());
+                System.out.println("TOTAL_DIAS: " + c.getTotalDias());
+                System.out.println("VALOR_TOTAL: " + c.getValorTotal());
+            }
+        }
+
+        if(!encontrado)
+        {
+            System.out.println("CONTRATO NO ENCONTRADO");
+        }
+    }
     
 }
