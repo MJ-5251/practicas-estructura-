@@ -22,7 +22,7 @@ public class ContratoRentingMetodos {
             int numero = Integer.parseInt(lista.getLast().getIdContrato());
              c.setIdContrato(String.valueOf(numero + 1));
          }
-          System.out.println("SU ID ES: " + c.getIdContrato() + 1);
+          System.out.println("SU ID ES: " + c.getIdContrato());
 
          System.out.println("INGRESE LA CEDULA DEL CLIENTE");
          String Cedula = vc.ClienteExistente(VectorClientes, sc);
@@ -111,12 +111,12 @@ public class ContratoRentingMetodos {
     {
         validaciones  v = new validaciones();
         ExportarContratos e = new ExportarContratos();
-        ExportarVehiculos e = new  ExportarVehiculos();
+        ExportarVehiculos i = new  ExportarVehiculos();
         System.out.println("INGRESE EL ID DEL CONTRATO  QUE DESEA FINALIZAR");
         String Id = v.ValidarSoloNumeros(sc, 4, 10);
         boolean encontrado = false;
         for (ContratoRenting c : lista) {
-            if(c.getIdContrato().equals(Id))
+            if(c.getIdContrato().equals(Id) && !c.isEliminado())
             {
                 c.setEstado("FINALIZADO");
                 encontrado = true;
@@ -126,7 +126,7 @@ public class ContratoRentingMetodos {
                      if(o.getPlaca().equals(c.getPlacaVehiculo()))
                      {
                         o.setEstado("DISPONIBLE");
-                        e.ExportarArchivo(VectorVehiculos);
+                        i.ExportarArchivo(VectorVehiculos);
                      }
                 }
             }
@@ -152,7 +152,7 @@ public class ContratoRentingMetodos {
         boolean encontrado = false; 
         
         for (ContratoRenting c : lista) {
-            if(c.getIdContrato().equals(Id)){
+            if(c.getIdContrato().equals(Id) && !c.isEliminado()){
                 encontrado = true;
 
                 System.out.println("ID_CONTRATO: " + c.getIdContrato());
