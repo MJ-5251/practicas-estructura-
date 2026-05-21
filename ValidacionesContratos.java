@@ -90,14 +90,13 @@ public class ValidacionesContratos {
 
     // VALIDAR VALOR TOTAL
     public float ValorTotal(int Dia, String Placa, Queue<Vehiculo> VectorVehiculos){
-      float Total;
+      float Total = 0;
       for (Vehiculo o : VectorVehiculos) {
           if(o.getPlaca().equals(Placa) && !o.isEliminado())
           {
              Total = o.getPrecioDiario() * Dia;
-             break;
+             return Total;
           }
       }
-      return Total;
     }
 }
