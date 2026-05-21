@@ -13,7 +13,7 @@ public class ValidacionesContratos {
 
       // VERIFICAR QUE EXISTA
       for (cliente o : VectorClientes) {
-         if(o.getCedulaCliente().equals(Cedula) && !o.isEliminado)
+         if(o.getCedula().equals(Cedula) && !o.isEliminado())
          {
             return Cedula = "SALIR";
          }
@@ -30,7 +30,7 @@ public class ValidacionesContratos {
       Placa = v.ValidarPlaca(sc);
       // VERIFICAR QUE EXISTA
       for (Vehiculo o : VectorVehiculos) {
-         if(o.getPlacaVehiculo().equals(Placa) && !o.isEliminado)
+         if(o.getPlaca().equals(Placa) && !o.isEliminado())
          {
             return Placa = "SALIR";
          }
