@@ -37,7 +37,7 @@ public class MetodosVehiculo {
                       System.out.println("INGRESE EL MODELO DEL VEHICULO");
                       C.setModelo(vh.ValidarModelo(sc));
                       System.out.println("INGRESE EL PRECIO DIARIO DEL VEHICULO");
-                      C.setPrecioDiario(vh.ValidarFloat(sc));
+                      C.setPrecioDiario(v.ValidarFloat(sc));
                       C.setEstado("DISPONIBLE");
 
                       boolean salir = true;
@@ -112,7 +112,7 @@ public class MetodosVehiculo {
                       System.out.println("INGRESE EL MODELO DEL VEHICULO");
                       P.setModelo(vh.ValidarModelo(sc));
                       System.out.println("INGRESE EL PRECIO DIARIO DEL VEHICULO");
-                      P.setPrecioDiario(vh.ValidarFloat(sc));
+                      P.setPrecioDiario(v.ValidarFloat(sc));
                       P.setEstado("DISPONIBLE");
 
                       boolean cont = true;
@@ -138,7 +138,7 @@ public class MetodosVehiculo {
                       }
                       
                       System.out.println("INGRESE LA CAPACIDAD DEL MALETERO");
-                        P.setCapacidadMaletero(vh.ValidarFloat(sc));
+                        P.setCapacidadMaletero(v.ValidarFloat(sc));
 
                       VectorVehiculo.add(P);
                     break;
@@ -176,7 +176,7 @@ public class MetodosVehiculo {
             System.out.println("INGRESE EL MODELO DEL VEHICULO");
             vehiculo.setModelo(vh.ValidarModelo(sc));
             System.out.println("INGRESE EL PRECIO DIARIO DEL VEHICULO");
-            vehiculo.setPrecioDiario(vh.ValidarFloat(sc));
+            vehiculo.setPrecioDiario(v.ValidarFloat(sc));
             boolean seguir = true;
             while (seguir) {
             System.out.println("INGRESE EL ESTADO DEL VEHICULO");
@@ -275,7 +275,7 @@ public class MetodosVehiculo {
                         }
                       }
                       System.out.println("INGRESE LA NUEVA CAPACIDAD DEL MALETERO");
-                      suv.setCapacidadMaletero(vh.ValidarFloat(sc));
+                      suv.setCapacidadMaletero(v.ValidarFloat(sc));
 
         }
        System.out.println("VEHICULO MODIFICADO");          
