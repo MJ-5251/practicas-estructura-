@@ -1,33 +1,7 @@
 import java.util.Scanner;
 
 public class validaciones {
-    
-    public String pedirCampo(String mensaje, Scanner sc) {
-        String valor;
-        do {
-            System.out.println(mensaje);
-            valor = sc.nextLine().trim();
-            if (valor.isBlank()) {
-                System.out.println("Este campo es requerido. Intente de nuevo.");
-            }
-        } while (valor.isBlank());
-        return valor;
-    }
-
-    public boolean ValidarDimension(String opt) {
-        while (opt.length() > 1) {
-            System.out.println("Solo puede agregar Y or N");
-            return false;
-
-        }
-        return true;
-
-    }
-
-    public boolean ValidarTexto(String texto) {
-        return texto.matches("[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ{} ]+");
-    }
-    
+     
      public int ValidarRango(int n1, int n2, Scanner sc) {
         int numero;
         numero = ValidarEntero(sc);
@@ -51,6 +25,24 @@ public class validaciones {
     return Integer.parseInt(Entrada);
     }
 
+
+    public float ValidarFloat(Scanner sc) {
+    String Entrada = "";
+    while (true) {
+        Entrada = sc.nextLine().trim().replaceAll("\\s+", "");
+        
+        if (!Entrada.isEmpty() && Entrada.matches("[0-9]+(\\.[0-9]+)?")) {
+            float Numero = Float.parseFloat(Entrada);
+            if (Numero > 0) {
+                break;
+            }
+        }
+        System.out.println("POR FAVOR INGRESE UN VALOR NUMERICO POSITIVO");
+    }
+    return Float.parseFloat(Entrada);
+    }
+
+    
  // VALIDAR NOMBRE ,APELLIDO Y MODELO VEHICULO
    public String ValidarSoloLetras(Scanner sc, int n1, int n2) {
     String Validar;
@@ -67,4 +59,31 @@ public class validaciones {
     return Validar;
    }
  
+         // VALIDAR CEDULA, TELEFONO Y ID CONTRATO
+    public String ValidarSoloNumeros(Scanner sc, int n1, int n2) {
+    String Validar;
+    
+    while (true) {
+        Validar = sc.nextLine().trim().replaceAll("\\s+", "");
+        
+        if (Validar.matches("[0-9]+") && Validar.length() >= n1 && Validar.length() <= n2) {
+            break;
+        }
+        if(n1 == 7)
+        {
+        System.out.println("ERROR: INGRESE DE 7 A 11 DIGITOS NUMÉRICOS SIN ESPCACIOS");
+        }
+        else if(n1 == 10){
+        System.out.println("ERROR: INGRESE 10 DIGITOS NUMÉRICOS SIN ESPCACIOS");
+        }
+        else
+        {
+            System.out.println("ERROR : INGRESE MINIMO 5 DIGITOS NUMERICOS SIN ESPACIOS");
+        }
+    }
+    
+    return Validar;
+   }
+
+
 }

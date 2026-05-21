@@ -4,29 +4,6 @@ import java.util.Stack;
 
 public class ValidacionesClientes {
 
-      // VALIDAR CEDULA Y TELEFONO
-    public String ValidarSoloNumeros(Scanner sc, int n1, int n2) {
-    String Validar;
-    
-    while (true) {
-        Validar = sc.nextLine().trim().replaceAll("\\s+", "");
-        
-        if (Validar.matches("[0-9]+") && Validar.length() >= n1 && Validar.length() <= n2) {
-            break;
-        }
-        if(n1 == 7)
-        {
-        System.out.println("ERROR: INGRESE DE 7 A 11 DIGITOS NUMÉRICOS SIN ESPCACIOS");
-        }
-        else{
-        System.out.println("ERROR: INGRESE 10 DIGITOS NUMÉRICOS SIN ESPCACIOS");
-        }
-    }
-    
-    return Validar;
-   }
-
-
    // VALIDAR DIRECCIÓN
    public String ValidarDireccion(Scanner sc) {
     String Direccion;
@@ -46,11 +23,11 @@ public class ValidacionesClientes {
    // VALIDAR CEDULA REPETIDA
    public String CedulaRepetida(Scanner sc, Stack<cliente> clientes)
    {
+    validaciones v = new validaciones();
     String Cedula;
     boolean encontrado = false;
-    validaciones v = new validaciones();
     while (true) {
-        Cedula = ValidarSoloNumeros(sc, 7, 11);
+        Cedula = v.ValidarSoloNumeros(sc, 7, 11);
         for (cliente o : clientes) {
             if(Cedula.equals(o.getCedula()) && !o.isEliminado())
             {

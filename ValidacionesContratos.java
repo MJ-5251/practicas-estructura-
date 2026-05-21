@@ -7,7 +7,7 @@ public class ValidacionesContratos {
        // VALIDAR CLIENTE EXISTENTE
    public String ClienteExistente(Stack<cliente> VectorClientes, Scanner sc)
    {
-      ValidacionesClientes v = new ValidacionesClientes();
+      validaciones v = new validaciones();
       String Cedula;
       // LEER CEDULA
       Cedula = v.ValidarSoloNumeros(sc, 7, 11);
@@ -88,4 +88,16 @@ public class ValidacionesContratos {
     return fecha;
     }
 
+    // VALIDAR VALOR TOTAL
+    public float ValorTotal(int Dia, String Placa, Queue<Vehiculo> VectorVehiculos){
+      float Total;
+      for (Vehiculo o : VectorVehiculos) {
+          if(o.getPlaca().equals(Placa) && !o.isEliminado())
+          {
+             Total = o.getPrecioDiario() * Dia;
+             break;
+          }
+      }
+      return Total;
+    }
 }
