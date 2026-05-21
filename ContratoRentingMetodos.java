@@ -6,7 +6,6 @@ import java.util.Stack;
 
 public class ContratoRentingMetodos {
     public LinkedList<ContratoRenting> llenar(LinkedList<ContratoRenting> lista, Stack<cliente> VectorClientes, Queue<Vehiculo> VectorVehiculos, Scanner sc){
-        ContratoRenting c = new ContratoRenting();
         ValidacionesContratos vc = new ValidacionesContratos();
         validaciones  v = new validaciones();
         ValidacionesVehiculos  vh = new ValidacionesVehiculos();
@@ -14,12 +13,13 @@ public class ContratoRentingMetodos {
         boolean continuar = true;
 
         while (continuar) {
+        ContratoRenting c = new ContratoRenting();
             if(lista.isEmpty())
           {
          c.setIdContrato("10000");
          }
          else{
-            int numero = Integer.parseInt(lista.getLast().getIdContrato() + 1);
+            int numero = Integer.parseInt(lista.getLast().getIdContrato()) + 1;
              c.setIdContrato(String.valueOf(numero));
          }
           System.out.println("SU ID ES: " + c.getIdContrato());
@@ -88,12 +88,14 @@ public class ContratoRentingMetodos {
         ExportarContratos e = new ExportarContratos();
         System.out.println("INGRESE EL ID DEL CONTRATO A MODIFICAR");
         String id = v.ValidarSoloNumeros(sc, 5, 10);
+        boolean encontrado = false;
         for (ContratoRenting c : lista) {
             if (c.getIdContrato().equals(id) && !c.isEliminado()) {
 
                 //System.out.println("Ingrese la fecha de inicio");
                 //c.setFechaInicio(sc.next());
-
+                
+                encontrado = true;
                 System.out.println("INGRESE LA FECHA DE FIN");
                 c.setFechaFin(vc.ValidarFecha(sc));
 
@@ -103,6 +105,15 @@ public class ContratoRentingMetodos {
                 c.setValorTotal(vc.ValorTotal(c.getTotalDias(), c.getPlacaVehiculo(), VectorVehiculos));
             }
         }
+
+        if(encontrado)
+        {
+            System.out.println("CONTRATO MODIFICADO");
+        }
+        else{
+            System.out.println("CONTRANO NO ENCONTRADO");
+        }
+
         e.ExportarArchivo(lista);
         return lista;
     }
@@ -154,7 +165,7 @@ public class ContratoRentingMetodos {
     {
         validaciones  v = new validaciones();
         ExportarContratos e = new ExportarContratos();
-        System.out.println("INGRESE EL ID DEL CONTRATO  QUE DESEA FINALIZAR");
+        System.out.println("INGRESE EL ID DEL CONTRATO  QUE DESEA BUSCAR");
         String Id = v.ValidarSoloNumeros(sc, 5, 10);
         boolean encontrado = false; 
         
