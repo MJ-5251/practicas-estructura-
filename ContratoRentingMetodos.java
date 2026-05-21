@@ -14,12 +14,12 @@ public class ContratoRentingMetodos {
         boolean continuar = true;
 
         while (continuar) {
-            if(lista == null)
+            if(lista.isEmpty())
           {
          c.setIdContrato("1000");
          }
          else{
-               int numero = Integer.parseInt(lista.getLast().getIdContrato());
+            int numero = Integer.parseInt(lista.getLast().getIdContrato());
              c.setIdContrato(String.valueOf(numero + 1));
          }
           System.out.println("SU ID ES: " + c.getIdContrato());
