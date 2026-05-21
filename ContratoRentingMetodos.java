@@ -87,7 +87,7 @@ public class ContratoRentingMetodos {
         ValidacionesClientes V = new ValidacionesClientes();
         ExportarContratos e = new ExportarContratos();
         System.out.println("INGRESE EL ID DEL CONTRATO A MODIFICAR");
-        String id = v.ValidarSoloNumeros(sc, 4, 10);
+        String id = v.ValidarSoloNumeros(sc, 5, 10);
         for (ContratoRenting c : lista) {
             if (c.getIdContrato().equals(id) && !c.isEliminado()) {
 
@@ -113,7 +113,7 @@ public class ContratoRentingMetodos {
         ExportarContratos e = new ExportarContratos();
         ExportarVehiculos i = new  ExportarVehiculos();
         System.out.println("INGRESE EL ID DEL CONTRATO  QUE DESEA FINALIZAR");
-        String Id = v.ValidarSoloNumeros(sc, 4, 10);
+        String Id = v.ValidarSoloNumeros(sc, 5, 10);
         boolean encontrado = false;
         for (ContratoRenting c : lista) {
             if(c.getIdContrato().equals(Id) && !c.isEliminado())
@@ -148,7 +148,7 @@ public class ContratoRentingMetodos {
         validaciones  v = new validaciones();
         ExportarContratos e = new ExportarContratos();
         System.out.println("INGRESE EL ID DEL CONTRATO  QUE DESEA FINALIZAR");
-        String Id = v.ValidarSoloNumeros(sc, 4, 10);
+        String Id = v.ValidarSoloNumeros(sc, 5, 10);
         boolean encontrado = false; 
         
         for (ContratoRenting c : lista) {
