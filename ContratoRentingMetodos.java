@@ -19,8 +19,8 @@ public class ContratoRentingMetodos {
          c.setIdContrato("10000");
          }
          else{
-            int numero = Integer.parseInt(lista.getLast().getIdContrato());
-             c.setIdContrato(String.valueOf(numero + 1));
+            int numero = Integer.parseInt(lista.getLast().getIdContrato() + 1);
+             c.setIdContrato(String.valueOf(numero));
          }
           System.out.println("SU ID ES: " + c.getIdContrato());
 
@@ -118,6 +118,11 @@ public class ContratoRentingMetodos {
         for (ContratoRenting c : lista) {
             if(c.getIdContrato().equals(Id) && !c.isEliminado())
             {
+                if(c.getEstado().equals("FINALIZADO"))
+                {
+                    System.out.println("EL CONTRATO YA FUE FINALIZADO ANTERIORMENTE");
+                }
+                else{
                 c.setEstado("FINALIZADO");
                 encontrado = true;
 
@@ -129,6 +134,8 @@ public class ContratoRentingMetodos {
                         i.ExportarArchivo(VectorVehiculos);
                      }
                 }
+                }
+
             }
         }
 
