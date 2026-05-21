@@ -78,4 +78,17 @@ public class ValidacionesClientes {
     }
     return Cedula;
    }
+
+   // VALIDAR VIGENCIA DE CONTRATOS
+   public boolean VigenciaContratos(LinkedList<ContratoRenting> VectorContratos, String Cedula)
+   {
+     boolean eliminar = true;
+     for (ContratoRenting c : VectorContratos) {
+        if(c.getCedulaCliente().equals(Cedula) && !c.isEliminado() && c.getEstado().equals("ACTIVO"))
+        {
+            eliminar = false;
+        }
+     }
+     return eliminar;
+   }
 }

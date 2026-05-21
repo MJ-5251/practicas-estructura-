@@ -36,7 +36,7 @@ public class ValidacionesContratos {
             return Placa;
          }
       }
-      return Placa = "SALIR";;
+      return Placa = "SALIR";
    }
 
    // VALIDAR FECHA
@@ -77,16 +77,4 @@ public class ValidacionesContratos {
     return fecha;
     }
 
-    // VALIDAR VIGENCIA DE CONTRATOS
-   public boolean VigenciaContratos(LinkedList<ContratoRenting> VectorContratos, String Cedula)
-   {
-     boolean eliminar = true;
-     for (ContratoRenting c : VectorContratos) {
-        if(c.getCedulaCliente().equals(Cedula) && !c.isEliminado() && c.getEstado().equals("ACTIVO"))
-        {
-            eliminar = false;
-        }
-     }
-     return eliminar;
-   }
 }
