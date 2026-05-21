@@ -16,7 +16,7 @@ public class ContratoRentingMetodos {
         while (continuar) {
             if(lista.isEmpty())
           {
-         c.setIdContrato("1000");
+         c.setIdContrato("10000");
          }
          else{
             int numero = Integer.parseInt(lista.getLast().getIdContrato());
