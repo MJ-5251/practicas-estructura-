@@ -106,7 +106,7 @@ public class Menu
             VectorContratos = m.Finalizar(VectorContratos, VectorVehiculos, sc);
             break;
         case 4:
-            m.Buscar(VectorContratos);
+            m.Buscar(VectorContratos, sc);
             break;
         case 5:
              continuar = false;
