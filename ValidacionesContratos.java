@@ -1,0 +1,103 @@
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+import java.util.Stack;
+
+public class ValidacionesContratos {
+       // VALIDAR CLIENTE EXISTENTE
+   public String ClienteExistente(Stack<cliente> VectorClientes, Scanner sc)
+   {
+      validaciones v = new validaciones();
+      String Cedula;
+      // LEER CEDULA
+      Cedula = v.ValidarSoloNumeros(sc, 7, 11);
+
+      // VERIFICAR QUE EXISTA
+      for (cliente o : VectorClientes) {
+         if(o.getCedula().equals(Cedula) && !o.isEliminado())
+         {
+            return Cedula;
+         }
+      }
+      return Cedula = "SALIR";
+   }
+
+   // VALIDAR VEHIUCLO EXISTENTE
+   public String VehiucloExistente(Queue<Vehiculo> VectorVehiculos, Scanner sc)
+   {
+      ValidacionesVehiculos v = new ValidacionesVehiculos();
+       ExportarVehiculos e = new  ExportarVehiculos();
+      String Placa;
+      // LEER CEDULA
+      Placa = v.ValidarPlaca(sc);
+      // VERIFICAR QUE EXISTA
+      for (Vehiculo o : VectorVehiculos) {
+         if(o.getPlaca().equals(Placa) && !o.isEliminado())
+         {
+            if(o.getEstado().equals("DISPONIBLE"))
+            {
+            o.setEstado("OCUPADO");
+            e.ExportarArchivo(VectorVehiculos);
+            return Placa;
+            }
+            else
+            {
+                return Placa = "OCUPADO";
+            }
+
+         }
+      }
+      return Placa = "SALIR";
+   }
+
+   // VALIDAR FECHA
+    public String ValidarFecha(Scanner sc) {
+    String fecha;
+    
+    while (true) {
+        fecha = sc.nextLine().trim().replaceAll("\\s+", "");
+        
+        if (fecha.matches("\\d{2}/\\d{2}/\\d{4}")) {
+            String[] partes = fecha.split("/");
+            int Dia = Integer.parseInt(partes[0]);
+            int Mes = Integer.parseInt(partes[1]);
+            int Anio = Integer.parseInt(partes[2]);
+            
+            if (Mes >= 1 && Mes <= 12 && Anio >= 2000 && Anio <= 2100) {
+                
+                int MaxDias;
+                if (Mes == 2) {
+                    if ((Anio % 4 == 0 && Anio % 100 != 0) || (Anio % 400 == 0)) {
+                        MaxDias = 29;
+                    } else {
+                        MaxDias = 28;
+                    }
+                } else if (Mes == 4 || Mes == 6 || Mes == 9 || Mes == 11) {
+                    MaxDias = 30;
+                } else {
+                    MaxDias = 31;
+                }
+                
+                if (Dia >= 1 && Dia <= MaxDias) {
+                    break;
+                }
+            }
+        }
+        System.out.println("ERROR: FECHA INVÁLIDA, FORMATO DD/MM/AAAA, EJEMPLO: 15/05/2024");
+    }
+    return fecha;
+    }
+
+    // VALIDAR VALOR TOTAL
+    public float ValorTotal(int Dia, String Placa, Queue<Vehiculo> VectorVehiculos){
+      float Total = 0;
+      for (Vehiculo o : VectorVehiculos) {
+          if(o.getPlaca().equals(Placa) && !o.isEliminado())
+          {
+             Total = o.getPrecioDiario() * Dia;
+             return Total;
+          }
+      }
+      return Total;
+    }
+}

@@ -63,3 +63,6 @@ public class CrearEstructura{
         informe.GenerarInforme(VectorClientes, VectorVehiculos, VectorContratos);
     }
 }
+        System.out.println("NO DISPONIBLE");
+    }
+}
