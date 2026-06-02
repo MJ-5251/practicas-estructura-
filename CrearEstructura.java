@@ -51,6 +51,18 @@ public class CrearEstructura{
 
     public static void Informe()
     {
+        ImportarClientes ic = new ImportarClientes();
+        ImportarVehiculos iv = new ImportarVehiculos();
+        ImportarContratos ict = new ImportarContratos();
+        InformeGeneral informe = new InformeGeneral();
+
+        Stack<cliente> VectorClientes = ic.Importar();
+        Queue<Vehiculo> VectorVehiculos = iv.Importar();
+        LinkedList<ContratoRenting> VectorContratos = ict.Importar();
+
+        informe.GenerarInforme(VectorClientes, VectorVehiculos, VectorContratos);
+    }
+}
         System.out.println("NO DISPONIBLE");
     }
 }
